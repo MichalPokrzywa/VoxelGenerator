@@ -8,7 +8,7 @@ using System.IO;
 [Serializable]
 public class WorldData
 {
-    //HashSet<Vector3Int> ChunkChecker = new HashSet<Vector3Int>();
+    //HashSet<Vector3Int> chunkChecker = new HashSet<Vector3Int>();
     //HashSet<Vector2Int> ChunkColumns = new HashSet<Vector2Int>();
     //Dictionary<Vector3Int, ChunkBlock> chunks = new Dictionary<Vector3Int, ChunkBlock>();
     public int[] chunkCheckerValues;
@@ -28,9 +28,9 @@ public class WorldData
         foreach (Vector3Int vector in cc)
         {
             chunkCheckerValues[index] = vector.x;
-            chunkCheckerValues[index +1] = vector.y;
-            chunkCheckerValues[index +2] = vector.z;
-            index =+ 3;
+            chunkCheckerValues[index + 1] = vector.y;
+            chunkCheckerValues[index + 2] = vector.z;
+            index += 3;
         }
 
         chunkColumnsValues = new int[cCols.Count * 2];
@@ -39,7 +39,7 @@ public class WorldData
         {
             chunkColumnsValues[index] = vector.x;
             chunkColumnsValues[index + 1] = vector.y;
-            index =+ 2;
+            index += 2;
         }
 
         chunkData = new int[chunks.Count * WorldCreator.chunkDimensions.x * WorldCreator.chunkDimensions.y *
@@ -81,8 +81,26 @@ public static class WorldSaver
         }
         BinaryFormatter bf = new BinaryFormatter();
         FileStream fileStream = File.Open(fileName, FileMode.OpenOrCreate);
-        worldData = new WorldData(worldCreator.ChunkChecker,worldCreator.ChunkColumns,worldCreator.chunks,worldCreator.fpc.transform.position);
+        worldData = new WorldData(worldCreator.chunkChecker,worldCreator.ChunkColumns,worldCreator.chunks,worldCreator.fpc.transform.position);
         bf.Serialize(fileStream,worldData);
+        fileStream.Close();
         Debug.Log($"Saving World to file {fileName}");
+    }
+
+    public static WorldData Load()
+    {
+        string fileName = BuildFileName();
+        if (File.Exists(fileName))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream fileStream = File.Open(fileName, FileMode.Open);
+            worldData = new WorldData();
+            worldData = (WorldData)bf.Deserialize(fileStream);
+            fileStream.Close();
+            Debug.Log($"Loading World from file {fileName}");
+            return worldData;
+        }
+
+        return null;
     }
 }

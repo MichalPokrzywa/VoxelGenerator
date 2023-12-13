@@ -111,7 +111,7 @@ public class ChunkBlock : MonoBehaviour
             randoms = RandomArray
         };
 
-        handle = calculateBlockTypes.Schedule(cData.Length, 128);
+        handle = calculateBlockTypes.Schedule(cData.Length, 64);
         handle.Complete();
         calculateBlockTypes.chunkData.CopyTo(cData);
         blockTypes.Dispose();
@@ -123,7 +123,7 @@ public class ChunkBlock : MonoBehaviour
     {
     }
 
-    public void CreateChunk(Vector3 dimension, Vector3 position)
+    public void CreateChunk(Vector3 dimension, Vector3 position, bool rebuildBlocks = true)
     {
         location = position;
         width = (int)dimension.x;
@@ -135,7 +135,7 @@ public class ChunkBlock : MonoBehaviour
         meshRenderer = mr;
         mr.material = atlas;
         blocks = new Block[width, height, depth];
-        BuildChunk();
+        if (rebuildBlocks) BuildChunk();
 
         var inputMeshes = new List<Mesh>();
         int vertexStart = 0;
