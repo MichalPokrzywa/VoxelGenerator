@@ -8,12 +8,10 @@ using System.IO;
 [Serializable]
 public class WorldData
 {
-    //HashSet<Vector3Int> chunkChecker = new HashSet<Vector3Int>();
-    //HashSet<Vector2Int> ChunkColumns = new HashSet<Vector2Int>();
-    //Dictionary<Vector3Int, ChunkBlock> chunks = new Dictionary<Vector3Int, ChunkBlock>();
     public int[] chunkCheckerValues;
     public int[] chunkColumnsValues;
     public int[] chunkData;
+    public bool[] chunkVisibility;
     public int fpcX;
     public int fpcY;
     public int fpcZ;
@@ -44,6 +42,8 @@ public class WorldData
 
         chunkData = new int[chunks.Count * WorldCreator.chunkDimensions.x * WorldCreator.chunkDimensions.y *
                             WorldCreator.chunkDimensions.z];
+        chunkVisibility = new bool[chunks.Count];
+        int vIndex = 0;
         index = 0;
         foreach (KeyValuePair<Vector3Int, ChunkBlock> chunk in chunks)
         {
@@ -52,6 +52,8 @@ public class WorldData
                 chunkData[index] = (int)blockType;
                 index++;
             }
+            chunkVisibility[vIndex] = chunk.Value.meshRenderer.enabled;
+            vIndex++;
         }
 
         fpcX = (int)fpc.x;

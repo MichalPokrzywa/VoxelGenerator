@@ -208,7 +208,7 @@ public class WorldCreator : MonoBehaviour
         }
 
         int index = 0;
-
+        int vIndex = 0;
         foreach (Vector3Int chunkPos in chunkChecker)
         {
             GameObject chunk = Instantiate(chunkPrefab);
@@ -225,6 +225,8 @@ public class WorldCreator : MonoBehaviour
             c.CreateChunk(chunkDimensions,chunkPos);
             chunks.Add(chunkPos,c);
             RedrawChunk(c);
+            c.meshRenderer.enabled = worldData.chunkVisibility[vIndex];
+            vIndex++;
             yield return null;
         }
         fpc.transform.position = new Vector3(worldData.fpcX,worldData.fpcY+1,worldData.fpcZ);
