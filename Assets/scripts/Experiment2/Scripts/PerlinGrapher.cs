@@ -13,15 +13,18 @@ public class PerlinGrapher : MonoBehaviour
     public float heightOffset = 1;
     [Range(0,1)]
     public float probability = 1;
-    // Start is called before the first frame update
+    public Material lineMaterial;
     void Start()
     {
         lr = this.GetComponent<LineRenderer>();
         lr.positionCount = 100;
+        Material newMaterial = new Material(lineMaterial);
+        newMaterial.color = new Color(Random.value, Random.value, Random.value); ;
+        lr.material = newMaterial;
         Graph();
     }
 
-    void Graph()
+    public void Graph()
     {
         lr = this.GetComponent<LineRenderer>();
         lr.positionCount = 100;

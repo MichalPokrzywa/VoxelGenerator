@@ -59,7 +59,6 @@ public class WorldCreator : MonoBehaviour
     public HashSet<Vector2Int> ChunkColumns = new HashSet<Vector2Int>();
     public Dictionary<Vector3Int, ChunkBlock> chunks = new Dictionary<Vector3Int, ChunkBlock>();
 
-    public Material material;
     Vector3Int lastBuildPosition;
     public bool load = true;
     Queue<IEnumerator> buildQueue = new Queue<IEnumerator>();
@@ -78,11 +77,8 @@ public class WorldCreator : MonoBehaviour
             
         }
     }
-    void Start()
+    void StartWorld()
     {
-        //Material random = Instantiate(material);
-        //Debug.Log(random);
-        //random.color = Color.white;
         loadingBar.maxValue = worldDimensions.x  * worldDimensions.z;
         surfaceSettings = new PerlinSettings(surface.heightScale,surface.scale,surface.octaves,surface.heightOffset,surface.probability);
         stoneSettings = new PerlinSettings(stone.heightScale, stone.scale, stone.octaves, stone.heightOffset, stone.probability);
