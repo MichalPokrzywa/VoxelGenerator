@@ -110,6 +110,14 @@ public class ChunkBlock : MonoBehaviour
             location = location,
             randoms = RandomArray
         };
+        //new CalculateBlockTypesJobs()
+        //{
+        //    chunkData = blockTypes,
+        //    width = width,
+        //    height = height,
+        //    location = location,
+        //    randoms = RandomArray
+        //};
 
         handle = calculateBlockTypes.Schedule(cData.Length, 64);
         handle.Complete();
