@@ -5,27 +5,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public struct PerlinSettings
-{
-    public float heightScale;
-    public float scale;
-    public int octaves;
-    public float heightOffset;
-    public float probability;
-
-    public PerlinSettings(float hs, float s, int o, float ho, float p)
-    {
-        heightScale = hs;
-        scale = s;
-        octaves = o;
-        heightOffset = ho;
-        probability = p;
-
-    }
-}
-
 public class WorldCreator : MonoBehaviour
 {
+    private static WorldCreator _instance;
+    public static WorldCreator instance => _instance;
+
     public static Vector3Int worldDimensions = new Vector3Int(3, 4, 3);
 
     public static Vector3Int extraWorldDimensions = new Vector3Int(1, 4, 1);
@@ -39,6 +23,7 @@ public class WorldCreator : MonoBehaviour
     public Slider loadingBar;
 
     public int drawRadius = 5;
+    public WorldVisualization worldVisualization;
     //PerlinSettings for generation
     public static PerlinSettings surfaceSettings;
     public PerlinGrapher surface;
@@ -63,6 +48,18 @@ public class WorldCreator : MonoBehaviour
     public bool load = true;
     Queue<IEnumerator> buildQueue = new Queue<IEnumerator>();
 
+
+    void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
     public void SaveWorld()
     {
         WorldSaver.Save(this);
@@ -77,7 +74,7 @@ public class WorldCreator : MonoBehaviour
             
         }
     }
-    void StartWorld()
+    public void StartWorld()
     {
         loadingBar.maxValue = worldDimensions.x  * worldDimensions.z;
         surfaceSettings = new PerlinSettings(surface.heightScale,surface.scale,surface.octaves,surface.heightOffset,surface.probability);

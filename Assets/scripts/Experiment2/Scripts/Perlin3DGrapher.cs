@@ -31,7 +31,7 @@ public class Perlin3DGrapher : MonoBehaviour
         }
     }
 
-    void Graph()
+    public void Graph()
     {
         //destroy existing cubes
         MeshRenderer[] cubes = this.GetComponentsInChildren<MeshRenderer>();

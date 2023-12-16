@@ -26,7 +26,6 @@ public class PerlinGrapher : MonoBehaviour
 
     public void Graph()
     {
-        lr = this.GetComponent<LineRenderer>();
         lr.positionCount = 100;
         int z = 11;
         Vector3[] positions = new Vector3[lr.positionCount];
@@ -41,11 +40,5 @@ public class PerlinGrapher : MonoBehaviour
     void OnValidate()
     {
         Graph();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
