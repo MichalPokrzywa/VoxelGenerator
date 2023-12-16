@@ -81,7 +81,7 @@ public class WorldCreator : MonoBehaviour
         stoneSettings = new PerlinSettings(stone.heightScale, stone.scale, stone.octaves, stone.heightOffset, stone.probability);
         diamondTSettings = new PerlinSettings(diamondT.heightScale, diamondT.scale, diamondT.octaves, diamondT.heightOffset, diamondT.probability);
         diamondDSettings = new PerlinSettings(diamondD.heightScale, diamondD.scale, diamondD.octaves, diamondD.heightOffset, diamondD.probability);
-        caveSettings = new PerlinSettings(cave.heightScale, cave.scale, cave.octaves, cave.heightOffset, cave.DrawCutOff);
+        caveSettings = new PerlinSettings(cave.heightScale, cave.scale, cave.octaves, cave.heightOffset, cave.drawCutOff);
         StartCoroutine(load ? LoadWorldFromFile() : BuildWorld());
     }
 

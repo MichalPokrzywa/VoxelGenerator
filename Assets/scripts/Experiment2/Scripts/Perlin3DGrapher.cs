@@ -12,7 +12,7 @@ public class Perlin3DGrapher : MonoBehaviour
     public int octaves = 1;
     public float heightOffset = 1;
     [Range(0.0f, 10.0f)]
-    public float DrawCutOff = 1;
+    public float drawCutOff = 1;
 
     void CreateCubes()
     {
@@ -47,7 +47,7 @@ public class Perlin3DGrapher : MonoBehaviour
                 for (int x = 0; x < dimensions.x; x++)
                 {
                     float p3d = MeshUtils.fBM3D(x, y, z, octaves, scale, heightScale, heightOffset);
-                    if (p3d < DrawCutOff)
+                    if (p3d < drawCutOff)
                         cubes[x + (int)dimensions.x * (y + (int)dimensions.z * z)].enabled = false;
                     else
                         cubes[x + (int)dimensions.x * (y + (int)dimensions.z * z)].enabled = true;

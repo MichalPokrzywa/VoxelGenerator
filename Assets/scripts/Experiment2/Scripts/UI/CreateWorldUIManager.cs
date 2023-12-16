@@ -13,7 +13,6 @@ public class CreateWorldUIManager : MonoBehaviour
     [SerializeField] public Slider renderDistanceSlider;
     [SerializeField] public Button createWorld;
     [SerializeField] public Button showGraphs;
-    [SerializeField] public Button showCave;
     [SerializeField] public List<GameObject> toHide;
     public int currentIndexOfDropdown = 0;
     public WorldVisualization chosenWorldVisualization;

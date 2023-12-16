@@ -14,6 +14,9 @@ public class CameraMovement : MonoBehaviour
 
         Vector3 movement = new Vector3(horizontalInput, verticalInput, 0f) * movementSpeed * Time.deltaTime;
         transform.Translate(movement);
-
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            transform.Rotate(new Vector3(0,180,0));
+        }
     }
 }
