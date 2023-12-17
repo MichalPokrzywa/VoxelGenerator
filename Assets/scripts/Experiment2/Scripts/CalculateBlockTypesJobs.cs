@@ -136,34 +136,56 @@ public struct CalculateBlockTypes : IJobParallelFor
             WorldCreator.worldVisualization.perlinSettings[5].scale,
             WorldCreator.worldVisualization.perlinSettings[5].heightScale, WorldCreator.worldVisualization.perlinSettings[5].heightOffset);
 
-        if (y == 0)
+        int digCave = (int)MeshUtils.fBM3D(x, y, z, WorldCreator.worldVisualization.perlinSettings[5].octaves,
+            WorldCreator.worldVisualization.perlinSettings[5].scale,
+            WorldCreator.worldVisualization.perlinSettings[5].heightScale, WorldCreator.worldVisualization.perlinSettings[5].heightOffset);
+
+        if (digCave < WorldCreator.worldVisualization.perlinSettings[5].probability)
         {
-            chunkData[i] = MeshUtils.BlockType.BEDROCK;
+            chunkData[i] = MeshUtils.BlockType.AIR;
             return;
         }
 
-        //if (digCave < WorldCreator.worldVisualization.perlinSettings[4].probability)
-        //{
-        //    chunkData[i] = MeshUtils.BlockType.AIR;
-        //    return;
-        //}
+        if (y <= surfaceHeight2 && bottomLine2 >= y)
+        {
+            if (surfaceHeight2 == y && surfaceHeight2 <= bottomLine2)
+                chunkData[i] = MeshUtils.BlockType.GRASSSIDE;
+            else if (y < stoneHeight2  &&
+                     random.NextFloat(1) <= WorldCreator.worldVisualization.perlinSettings[1].probability)
+                chunkData[i] = MeshUtils.BlockType.STONE;
+            else
+                chunkData[i] = MeshUtils.BlockType.AIR;
 
-        if (surfaceHeight1 == y)
-            chunkData[i] = MeshUtils.BlockType.GRASSSIDE;
-        else if (surfaceHeight1 < y)
-            chunkData[i] = MeshUtils.BlockType.DIRT;
-        else if (stoneHeight1 > y && random.NextFloat(1) <= WorldCreator.worldVisualization.perlinSettings[1].probability)
-            chunkData[i] = MeshUtils.BlockType.STONE;
-        //else if (bottomLine1 > y && random.NextFloat(1) <= WorldCreator.worldVisualization.perlinSettings[1].probability)
-        //    chunkData[i] = MeshUtils.BlockType.STONE;
-        else if (surfaceHeight2 == y)
-            chunkData[i] = MeshUtils.BlockType.GRASSSIDE;
-        else if (surfaceHeight2 > y)
-            chunkData[i] = MeshUtils.BlockType.DIRT;
-        else if (stoneHeight2 > y && random.NextFloat(1) <= WorldCreator.worldVisualization.perlinSettings[4].probability)
-            chunkData[i] = MeshUtils.BlockType.STONE;
+        }
+        else if (y <= surfaceHeight1 && bottomLine1 >= y)
+        {
+            if (surfaceHeight1 == y && surfaceHeight1 <= bottomLine1)
+                chunkData[i] = MeshUtils.BlockType.GRASSSIDE;
+            else if (y < surfaceHeight1 && y > bottomLine1)
+                chunkData[i] = MeshUtils.BlockType.DIRT;
+            else
+                chunkData[i] = MeshUtils.BlockType.AIR;
+        }
         else
             chunkData[i] = MeshUtils.BlockType.AIR;
+
+        //else if (surfaceHeight2 == y && surfaceHeight2 < bottomLine2)
+        //    chunkData[i] = MeshUtils.BlockType.GRASSSIDE;
+        //else if (y < surfaceHeight2  && y > bottomLine2 )
+        //   chunkData[i] = MeshUtils.BlockType.DIRT;
+        ////else if (stoneHeight1 > y && random.NextFloat(1) <= WorldCreator.worldVisualization.perlinSettings[1].probability)
+        ////    chunkData[i] = MeshUtils.BlockType.STONE;
+        ////else if (bottomLine1 > y && random.NextFloat(1) <= WorldCreator.worldVisualization.perlinSettings[1].probability)
+        ////    chunkData[i] = MeshUtils.BlockType.STONE;y < diamondTHeight && y > diamondDHeight
+        //else if (surfaceHeight1 == y && surfaceHeight1 <= bottomLine1)
+        //    chunkData[i] = MeshUtils.BlockType.GRASSSIDE;
+        //else if (y < surfaceHeight1 && y > bottomLine1)
+        //    chunkData[i] = MeshUtils.BlockType.DIRT;
+
+        ////else if (stoneHeight2 > y && random.NextFloat(1) <= WorldCreator.worldVisualization.perlinSettings[4].probability)
+        ////    chunkData[i] = MeshUtils.BlockType.STONE;
+        //else
+        //    chunkData[i] = MeshUtils.BlockType.AIR;
     }
 
     public void FlatGenerator(int i)
