@@ -20,7 +20,7 @@ public class CreateWorldUIManager : MonoBehaviour
     void Start()
     {
         menuDropdown.onValueChanged.AddListener(delegate { ChooseMenu(); });
-        createWorld.onClick.AddListener(WorldCreator.instance.StartWorld);
+        createWorld.onClick.AddListener(GenerateWorld);
         showGraphs.onClick.AddListener(CheckGraphs);
 
     }
@@ -40,5 +40,12 @@ public class CreateWorldUIManager : MonoBehaviour
         {
             g.SetActive(!g.activeSelf);
         }
+    }
+
+    public void GenerateWorld()
+    {
+        Vector3Int dataVector = new Vector3Int((int)worldDimensionSlider.value,(int)chunkDimensionSlider.value,(int)renderDistanceSlider.value);
+        chosenWorldVisualization = avaibleMenus[currentIndexOfDropdown].GetComponent<GenerationWorldUI>().worldVisualization;
+        WorldCreator.instance.StartWorld(chosenWorldVisualization,dataVector);
     }
 }

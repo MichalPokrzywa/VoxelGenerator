@@ -65,7 +65,7 @@ public class Block {
         }
         if(parentChunk.cData[x + parentChunk.width * (y + parentChunk.depth * z)] == MeshUtils.BlockType.AIR
             || parentChunk.cData[x + parentChunk.width * (y + parentChunk.depth * z)] == MeshUtils.BlockType.WATER)
-        return false;
+            return false;
         return true;
     }
 }

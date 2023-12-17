@@ -7,7 +7,7 @@ public class WorldVisualization : MonoBehaviour
     [SerializeField] public CalculateBlockTypesJobs calculate;
     [SerializeField] public List<PerlinGrapher> perlinGraphers = new List<PerlinGrapher>();
     [SerializeField] public Perlin3DGrapher perlinGrapher3D;
-    public static List<PerlinSettings> perlinSettings = new List<PerlinSettings>();
+    public List<PerlinSettings> perlinSettings = new List<PerlinSettings>();
 
 
     void Start()
@@ -26,6 +26,13 @@ public class WorldVisualization : MonoBehaviour
             PerlinSettings settings = new PerlinSettings(perlin.heightScale,perlin.scale,perlin.octaves,perlin.heightOffset,perlin.probability);
             perlinSettings.Add(settings);
         }
+
+        if (perlinGrapher3D != null)
+        {
+            PerlinSettings settings = new PerlinSettings(perlinGrapher3D.heightScale, perlinGrapher3D.scale, perlinGrapher3D.octaves, perlinGrapher3D.heightOffset, perlinGrapher3D.drawCutOff);
+            perlinSettings.Add(settings);
+        }
+        Debug.Log(perlinSettings.Count);
     }
 }
 public struct PerlinSettings
@@ -35,7 +42,6 @@ public struct PerlinSettings
     public int octaves;
     public float heightOffset;
     public float probability;
-
     public PerlinSettings(float hs, float s, int o, float ho, float p)
     {
         heightScale = hs;

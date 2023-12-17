@@ -47,7 +47,10 @@ public class SettingsGraphManager : MonoBehaviour
     public void HeightScaleValueChangeCheck()
     {
         if (perlinGrapherSettings != null)
+        {
             perlinGrapherSettings.heightScale = float.Parse(heightScaleInputField.text);
+            perlinGrapherSettings.Graph();
+        }
         else
             perlin3DGrapherSettings.heightScale = float.Parse(heightScaleInputField.text);
 
@@ -56,7 +59,10 @@ public class SettingsGraphManager : MonoBehaviour
     public void ScaleValueChangeCheck()
     {
         if (perlinGrapherSettings != null)
+        {
             perlinGrapherSettings.scale = (float)Math.Round((decimal)scaleSlider.value, 3);
+            perlinGrapherSettings.Graph();
+        }
         else
             perlin3DGrapherSettings.scale = (float)Math.Round((decimal)scaleSlider.value, 3);
     }
@@ -64,7 +70,10 @@ public class SettingsGraphManager : MonoBehaviour
     public void OctavesValueChangeCheck()
     {
         if (perlinGrapherSettings != null)
+        {
             perlinGrapherSettings.octaves = int.Parse(octavesInputField.text);
+            perlinGrapherSettings.Graph();
+        }
         else
             perlin3DGrapherSettings.octaves = int.Parse(octavesInputField.text);
     }
@@ -72,15 +81,25 @@ public class SettingsGraphManager : MonoBehaviour
     public void ProbabilityValueChangeCheck()
     {
         if (perlinGrapherSettings != null)
+        {
             perlinGrapherSettings.probability = (float)Math.Round((decimal)probabilitySlider.value, 3);
+            perlinGrapherSettings.Graph();
+        }
         else
             perlin3DGrapherSettings.drawCutOff = (float)Math.Round((decimal)probabilitySlider.value, 3);
     }
     public void HeightOffsetValueChangeCheck()
     {
         if (perlinGrapherSettings != null)
+        {
             perlinGrapherSettings.heightOffset = float.Parse(heightOffsetInputField.text);
+            perlinGrapherSettings.Graph();
+        }
         else
+        {
             perlin3DGrapherSettings.heightOffset = float.Parse(heightOffsetInputField.text);
+
+        }
+        
     }
 }

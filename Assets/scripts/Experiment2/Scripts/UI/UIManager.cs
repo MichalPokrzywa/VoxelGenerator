@@ -4,15 +4,38 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private static UIManager _instance;
+    public static UIManager instance => _instance;
+
+
+    [SerializeField] public GameObject settings;
+    [SerializeField] public GameObject visualization;
+    [SerializeField] public GameObject loading;
+    [SerializeField] public GameObject gameHub;
+    void Awake()
     {
-        
+        if (_instance != null && _instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ChangeToLoading()
     {
-        
+        settings.SetActive(false);
+        visualization.SetActive(false);
+        loading.SetActive(true);
     }
+
+    public void ChangeToHub()
+    {
+        loading.SetActive(false);
+        gameHub.SetActive(true);
+    }
+
 }
