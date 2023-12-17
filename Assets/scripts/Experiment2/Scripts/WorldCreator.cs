@@ -43,6 +43,7 @@ public class WorldCreator : MonoBehaviour
     public List<GameObject> createdGameObjects = new List<GameObject>();
     Vector3Int lastBuildPosition;
     public bool load = true;
+    public static bool useCaves;
     Queue<IEnumerator> buildQueue = new Queue<IEnumerator>();
 
 
@@ -71,13 +72,14 @@ public class WorldCreator : MonoBehaviour
             
         }
     }
-    public void StartWorld(WorldVisualization chosenWorldVisualization,Vector3Int dataVector)
+    public void StartWorld(WorldVisualization chosenWorldVisualization,Vector3Int dataVector, bool useCaveschoose)
     {
         worldVisualization = chosenWorldVisualization;
         worldVisualization.CreateSettings();
         worldDimensions = new Vector3Int(dataVector.x, (int)(worldVisualization.perlinSettings[0].heightScale + worldVisualization.perlinSettings[0].heightOffset), dataVector.x);
         chunkDimensions = new Vector3Int(dataVector.y, dataVector.y, dataVector.y);
         drawRadius = dataVector.z;
+        useCaves = useCaveschoose;
         Debug.Log(worldVisualization);
         UIManager.instance.ChangeToLoading();
         LoadingUI.instance.SetMaxValue(worldDimensions.x * worldDimensions.z);
