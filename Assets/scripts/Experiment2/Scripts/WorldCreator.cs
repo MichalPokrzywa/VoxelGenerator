@@ -33,7 +33,6 @@ public class WorldCreator : MonoBehaviour
     public static bool hideTerrain;
     Queue<IEnumerator> buildQueue = new Queue<IEnumerator>();
 
-
     void Awake()
     {
         if (_instance != null && _instance != this)
@@ -47,8 +46,6 @@ public class WorldCreator : MonoBehaviour
     }
     public void SaveWorld()
     {
-        Debug.Log(worldVisualization.SerializeToJSON());
-        
         WorldSaver.Save(this);
     }
     IEnumerator BuildCoordinator()
@@ -73,9 +70,14 @@ public class WorldCreator : MonoBehaviour
         Debug.Log(worldVisualization);
         UIManager.instance.ChangeToLoading();
         LoadingUI.instance.SetMaxValue(worldDimensions.x * worldDimensions.z);
-        StartCoroutine(load ? LoadWorldFromFile() : BuildWorld());
+        StartBuilding(false);
     }
 
+    public void StartBuilding(bool fromFile,string fileName = "")
+    {
+        load = fromFile;
+        StartCoroutine(load ? LoadWorldFromFile(fileName) : BuildWorld());
+    }
     IEnumerator BuildChunkColumn(int x, int z,bool meshEnable = true)
     {
         for (int y = 0; y < worldDimensions.y; y++)
@@ -184,11 +186,16 @@ public class WorldCreator : MonoBehaviour
         StartCoroutine(BuildExtraWorld());
     }
 
-    IEnumerator LoadWorldFromFile()
+    IEnumerator LoadWorldFromFile(string fileName)
     {
-        WorldData worldData = WorldSaver.Load();
+        WorldData worldData = WorldSaver.Load(fileName);
+        worldVisualization = GetComponent<WorldVisualization>();
         worldVisualization.perlinSettings = worldData.perlinSettings.ToList();
         worldVisualization.calculate.generationJob = worldData.calculateBlockTypes;
+        chunkDimensions = new Vector3Int(worldData.chunkDimensions[0], worldData.chunkDimensions[1],
+            worldData.chunkDimensions[2]);
+        worldDimensions = new Vector3Int(worldData.worldDimensions[0], worldData.worldDimensions[1],
+            worldData.worldDimensions[2]);
         Debug.Log(worldVisualization.perlinSettings.Count);
         chunkChecker.Clear();
         for (int i = 0; i < worldData.chunkCheckerValues.Length; i+=3)

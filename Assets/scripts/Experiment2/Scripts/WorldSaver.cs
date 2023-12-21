@@ -80,17 +80,18 @@ public class WorldData
 public static class WorldSaver
 {
     static WorldData worldData;
-
-    static string BuildFileName()
+    public static List<string> allFiles;
+    static string CreateBuildFileName()
     {
-        return $"{Application.persistentDataPath}/savedata/World_" +
-               $"{WorldCreator.chunkDimensions.x}_{WorldCreator.chunkDimensions.y}_{WorldCreator.chunkDimensions.z}_" +
-               $"{WorldCreator.worldDimensions.x}_{WorldCreator.worldDimensions.y}_{WorldCreator.worldDimensions.z}.json";
+        return $"{Application.persistentDataPath}/savedata/World_{System.DateTime.Today.ToString().Replace(" ", "").Replace(":", "").Replace(".", "")}.json";
     }
-
+    static string LoadBuildFileName(int index)
+    {
+        return allFiles[index];
+    }
     public static void Save(WorldCreator worldCreator)
     {
-        string fileName = BuildFileName();
+        string fileName = CreateBuildFileName();
         if (!File.Exists(fileName))
         {
             Directory.CreateDirectory(Path.GetDirectoryName(fileName) ?? string.Empty);
@@ -103,9 +104,9 @@ public static class WorldSaver
         Debug.Log($"Saving World to file {fileName}");
     }
 
-    public static WorldData Load()
+    public static WorldData Load(string fileLocation)
     {
-        string fileName = BuildFileName();
+        string fileName = fileLocation;
         if (File.Exists(fileName))
         {
             string json = File.ReadAllText(fileName);
