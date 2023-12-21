@@ -15,11 +15,14 @@ public class WorldData
     public int fpcX;
     public int fpcY;
     public int fpcZ;
-
+    public int[] worldDimensions;
+    public int[] chunkDimensions;
+    public PerlinSettings[] perlinSettings;
+    public CalculateBlockTypes calculateBlockTypes;
     public WorldData() { }
 
     public WorldData(HashSet<Vector3Int> cc, HashSet<Vector2Int> cCols, Dictionary<Vector3Int, ChunkBlock> chunks,
-        Vector3 fpc)
+        Vector3 fpc,Vector3Int worldDimension,Vector3Int chunkDimension, WorldVisualization worldVisualization)
     {
         chunkCheckerValues = new int[cc.Count * 3];
         int index = 0;
@@ -56,11 +59,22 @@ public class WorldData
             vIndex++;
         }
 
+        index = 0;
         fpcX = (int)fpc.x;
         fpcY = (int)fpc.y;
         fpcZ = (int)fpc.z;
+        worldDimensions = new int[] { worldDimension.x, worldDimension.y, worldDimension.z };
+        chunkDimensions = new int[] { chunkDimension.x, chunkDimension.y, chunkDimension.z };
+        perlinSettings = new PerlinSettings[worldVisualization.perlinSettings.Count];
+        foreach (PerlinSettings setting in worldVisualization.perlinSettings)
+        {
+            perlinSettings[index] = setting;
+            index++;
+        }
+
+        calculateBlockTypes = worldVisualization.calculate.generationJob;
+
     }
-    
 }
 
 public static class WorldSaver
@@ -71,7 +85,7 @@ public static class WorldSaver
     {
         return $"{Application.persistentDataPath}/savedata/World_" +
                $"{WorldCreator.chunkDimensions.x}_{WorldCreator.chunkDimensions.y}_{WorldCreator.chunkDimensions.z}_" +
-               $"{WorldCreator.worldDimensions.x}_{WorldCreator.worldDimensions.y}_{WorldCreator.worldDimensions.z}.dat";
+               $"{WorldCreator.worldDimensions.x}_{WorldCreator.worldDimensions.y}_{WorldCreator.worldDimensions.z}.json";
     }
 
     public static void Save(WorldCreator worldCreator)
@@ -81,11 +95,11 @@ public static class WorldSaver
         {
             Directory.CreateDirectory(Path.GetDirectoryName(fileName) ?? string.Empty);
         }
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream fileStream = File.Open(fileName, FileMode.OpenOrCreate);
-        worldData = new WorldData(worldCreator.chunkChecker,worldCreator.ChunkColumns,worldCreator.chunks,worldCreator.fpc.transform.position);
-        bf.Serialize(fileStream,worldData);
-        fileStream.Close();
+
+        worldData = new WorldData(worldCreator.chunkChecker, worldCreator.ChunkColumns, worldCreator.chunks, worldCreator.fpc.transform.position,WorldCreator.worldDimensions,WorldCreator.chunkDimensions,WorldCreator.worldVisualization);
+        string json = JsonUtility.ToJson(worldData);
+        File.WriteAllText(fileName, json);
+
         Debug.Log($"Saving World to file {fileName}");
     }
 
@@ -94,11 +108,9 @@ public static class WorldSaver
         string fileName = BuildFileName();
         if (File.Exists(fileName))
         {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream fileStream = File.Open(fileName, FileMode.Open);
-            worldData = new WorldData();
-            worldData = (WorldData)bf.Deserialize(fileStream);
-            fileStream.Close();
+            string json = File.ReadAllText(fileName);
+            worldData = JsonUtility.FromJson<WorldData>(json);
+
             Debug.Log($"Loading World from file {fileName}");
             return worldData;
         }

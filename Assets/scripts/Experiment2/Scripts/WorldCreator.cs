@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class WorldCreator : MonoBehaviour
@@ -21,21 +22,6 @@ public class WorldCreator : MonoBehaviour
 
     public int drawRadius = 5;
     public static WorldVisualization worldVisualization;
-    //PerlinSettings for generation
-    public static PerlinSettings surfaceSettings;
-    public PerlinGrapher surface;
-
-    public static PerlinSettings stoneSettings;
-    public PerlinGrapher stone;
-
-    public static PerlinSettings diamondTSettings;
-    public PerlinGrapher diamondT;
-
-    public static PerlinSettings diamondDSettings;
-    public PerlinGrapher diamondD;
-
-    public static PerlinSettings caveSettings;
-    public Perlin3DGrapher cave;
 
     public HashSet<Vector3Int> chunkChecker = new HashSet<Vector3Int>();
     public HashSet<Vector2Int> ChunkColumns = new HashSet<Vector2Int>();
@@ -44,6 +30,7 @@ public class WorldCreator : MonoBehaviour
     Vector3Int lastBuildPosition;
     public bool load = true;
     public static bool useCaves;
+    public static bool hideTerrain;
     Queue<IEnumerator> buildQueue = new Queue<IEnumerator>();
 
 
@@ -60,6 +47,8 @@ public class WorldCreator : MonoBehaviour
     }
     public void SaveWorld()
     {
+        Debug.Log(worldVisualization.SerializeToJSON());
+        
         WorldSaver.Save(this);
     }
     IEnumerator BuildCoordinator()
@@ -79,6 +68,7 @@ public class WorldCreator : MonoBehaviour
         worldDimensions = new Vector3Int(dataVector.x, (int)(worldVisualization.perlinSettings[0].heightScale + worldVisualization.perlinSettings[0].heightOffset), dataVector.x);
         chunkDimensions = new Vector3Int(dataVector.y, dataVector.y, dataVector.y);
         drawRadius = dataVector.z;
+        hideTerrain = false;
         useCaves = useCaveschoose;
         Debug.Log(worldVisualization);
         UIManager.instance.ChangeToLoading();
@@ -197,11 +187,9 @@ public class WorldCreator : MonoBehaviour
     IEnumerator LoadWorldFromFile()
     {
         WorldData worldData = WorldSaver.Load();
-        if (worldData == null)
-        {
-            StartCoroutine(BuildWorld());
-            yield break;
-        }
+        worldVisualization.perlinSettings = worldData.perlinSettings.ToList();
+        worldVisualization.calculate.generationJob = worldData.calculateBlockTypes;
+        Debug.Log(worldVisualization.perlinSettings.Count);
         chunkChecker.Clear();
         for (int i = 0; i < worldData.chunkCheckerValues.Length; i+=3)
         {
@@ -282,7 +270,8 @@ public class WorldCreator : MonoBehaviour
                 int posx = (int)(fpc.transform.position.x / chunkDimensions.x) * chunkDimensions.x;
                 int posz = (int)(fpc.transform.position.z / chunkDimensions.z) * chunkDimensions.z;
                 buildQueue.Enqueue(BuildRecursiveWorld(posx,posz,drawRadius));
-                //buildQueue.Enqueue(HideCollums(posx,posz));
+                if(hideTerrain)
+                    buildQueue.Enqueue(HideCollums(posx,posz));
             }
 
             yield return waitForSeconds;

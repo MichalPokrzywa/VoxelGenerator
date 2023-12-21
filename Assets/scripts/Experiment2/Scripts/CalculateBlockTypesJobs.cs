@@ -1,3 +1,4 @@
+using System;
 using Unity.Collections;
 using Unity.Jobs;
 using UnityEngine;
@@ -5,10 +6,10 @@ using Random = Unity.Mathematics.Random;
 
 public class CalculateBlockTypesJobs : MonoBehaviour
 {
-    public CalculateBlockTypes jobParallelFor;
+    public CalculateBlockTypes generationJob;
     public virtual void AssignValues(NativeArray<MeshUtils.BlockType> chunkData, int width, int height, Vector3 location, NativeArray<Random> randoms)
     {
-        jobParallelFor = new CalculateBlockTypes()
+        generationJob = new CalculateBlockTypes()
         {
             chunkData = chunkData,
             width = width, 
@@ -19,7 +20,7 @@ public class CalculateBlockTypesJobs : MonoBehaviour
         };
     }
 }
-
+[Serializable]
 public struct CalculateBlockTypes : IJobParallelFor
 {
    

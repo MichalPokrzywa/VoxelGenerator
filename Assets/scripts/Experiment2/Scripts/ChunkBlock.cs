@@ -40,7 +40,7 @@ public class ChunkBlock : MonoBehaviour
         RandomArray = new NativeArray<Unity.Mathematics.Random>(randomArray, Allocator.Persistent);
         calculateBlockTypesJobs = WorldCreator.worldVisualization.calculate;
         calculateBlockTypesJobs.AssignValues(blockTypes, width, height, location, RandomArray);
-        calculateBlockTypes = calculateBlockTypesJobs.jobParallelFor;
+        calculateBlockTypes = calculateBlockTypesJobs.generationJob;
         handle = calculateBlockTypes.Schedule(cData.Length, 64);
         handle.Complete();
         calculateBlockTypes.chunkData.CopyTo(cData);

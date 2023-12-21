@@ -8,7 +8,7 @@ public class FloatingIslandsCalculateBlockType : CalculateBlockTypesJobs
 {
     public override void AssignValues(NativeArray<MeshUtils.BlockType> chunkData, int width, int height, Vector3 location, NativeArray<Random> randoms)
     {
-        jobParallelFor = new CalculateBlockTypes()
+        generationJob = new CalculateBlockTypes()
         {
             chunkData = chunkData,
             width = width,

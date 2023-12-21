@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+
 
 public class WorldVisualization : MonoBehaviour
 {
@@ -9,13 +12,17 @@ public class WorldVisualization : MonoBehaviour
     [SerializeField] public Perlin3DGrapher perlinGrapher3D;
     public List<PerlinSettings> perlinSettings = new List<PerlinSettings>();
 
-
     void Start()
     {
         foreach (PerlinGrapher child in transform.GetComponentsInChildren<PerlinGrapher>())
         {
             Debug.Log(child.gameObject.name);
             perlinGraphers.Add(child);
+        }
+
+        if (calculate == null)
+        {
+            calculate = new CalculateBlockTypesJobs();
         }
     }
 
@@ -34,7 +41,12 @@ public class WorldVisualization : MonoBehaviour
         }
         Debug.Log(perlinSettings.Count);
     }
+    public string SerializeToJSON()
+    {
+        return JsonUtility.ToJson(this);
+    }
 }
+[Serializable]
 public struct PerlinSettings
 {
     public float heightScale;
