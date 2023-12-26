@@ -190,6 +190,8 @@ public class WorldCreator : MonoBehaviour
     {
         WorldData worldData = WorldSaver.Load(fileName);
         worldVisualization = GetComponent<WorldVisualization>();
+        UIManager.instance.ChangeToLoading();
+        LoadingUI.instance.SetMaxValue(worldDimensions.x * worldDimensions.z);
         worldVisualization.perlinSettings = worldData.perlinSettings.ToList();
         worldVisualization.calculate.generationJob = worldData.calculateBlockTypes;
         chunkDimensions = new Vector3Int(worldData.chunkDimensions[0], worldData.chunkDimensions[1],
@@ -214,6 +216,7 @@ public class WorldCreator : MonoBehaviour
 
         int index = 0;
         int vIndex = 0;
+        LoadingUI.instance.SetMaxValue(chunkChecker.Count);
         foreach (Vector3Int chunkPos in chunkChecker)
         {
             GameObject chunk = Instantiate(chunkPrefab);
@@ -232,11 +235,13 @@ public class WorldCreator : MonoBehaviour
             RedrawChunk(c);
             c.meshRenderer.enabled = worldData.chunkVisibility[vIndex];
             vIndex++;
+            LoadingUI.instance.UpdateValue();
             yield return null;
         }
         fpc.transform.position = new Vector3(worldData.fpcX,worldData.fpcY+1,worldData.fpcZ);
         mCamera.SetActive(false);
         fpc.SetActive(true);
+        LoadingUI.instance.CloseLoading();
         lastBuildPosition = Vector3Int.CeilToInt(fpc.transform.position);
         StartCoroutine(BuildCoordinator());
         StartCoroutine(UpdateWorld());

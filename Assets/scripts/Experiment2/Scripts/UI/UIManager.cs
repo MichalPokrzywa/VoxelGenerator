@@ -7,7 +7,6 @@ public class UIManager : MonoBehaviour
     private static UIManager _instance;
     public static UIManager instance => _instance;
 
-
     [SerializeField] public GameObject settings;
     [SerializeField] public GameObject visualization;
     [SerializeField] public GameObject loading;
