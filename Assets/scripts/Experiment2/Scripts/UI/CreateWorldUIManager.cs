@@ -13,10 +13,12 @@ public class CreateWorldUIManager : MonoBehaviour
     [SerializeField] public Slider renderDistanceSlider;
     [SerializeField] public Button createWorld;
     [SerializeField] public Button showGraphs;
-    [SerializeField] public Toggle caveToggle; 
+    [SerializeField] public Toggle caveToggle;
+    [SerializeField] public Toggle hideWorld;
     [SerializeField] public List<GameObject> toHide;
     public int currentIndexOfDropdown = 0;
     public bool useCave = false;
+    public bool hideTerrain = false;
     public WorldVisualization chosenWorldVisualization;
 
     void Start()
@@ -25,7 +27,7 @@ public class CreateWorldUIManager : MonoBehaviour
         createWorld.onClick.AddListener(GenerateWorld);
         showGraphs.onClick.AddListener(CheckGraphs);
         caveToggle.onValueChanged.AddListener(delegate { ChangeColor(); });
-
+        hideWorld.onValueChanged.AddListener(delegate {ChangeHideTerrain();});
     }
 
     public void ChooseMenu()
@@ -35,6 +37,11 @@ public class CreateWorldUIManager : MonoBehaviour
         avaibleMenus[menuDropdown.value].gameObject.SetActive(true);
         avaibleMenus[menuDropdown.value].gameObject.GetComponent<GenerationWorldUI>().worldVisualization.gameObject.SetActive(true);
         currentIndexOfDropdown = menuDropdown.value;
+    }
+
+    public void ChangeHideTerrain()
+    {
+        hideTerrain = hideWorld.isOn;
     }
 
     public void CheckGraphs()
@@ -63,6 +70,6 @@ public class CreateWorldUIManager : MonoBehaviour
     {
         Vector3Int dataVector = new Vector3Int((int)worldDimensionSlider.value,(int)chunkDimensionSlider.value,(int)renderDistanceSlider.value);
         chosenWorldVisualization = avaibleMenus[currentIndexOfDropdown].GetComponent<GenerationWorldUI>().worldVisualization;
-        WorldCreator.instance.StartWorld(chosenWorldVisualization,dataVector,useCave);
+        WorldCreator.instance.StartWorld(chosenWorldVisualization,dataVector,useCave,hideTerrain);
     }
 }

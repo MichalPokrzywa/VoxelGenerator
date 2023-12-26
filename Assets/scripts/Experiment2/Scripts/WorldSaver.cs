@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
 [Serializable]
@@ -19,6 +17,8 @@ public class WorldData
     public int[] chunkDimensions;
     public PerlinSettings[] perlinSettings;
     public CalculateBlockTypes calculateBlockTypes;
+    public bool hideTerrain;
+    public bool useCave;
     public WorldData() { }
 
     public WorldData(HashSet<Vector3Int> cc, HashSet<Vector2Int> cCols, Dictionary<Vector3Int, ChunkBlock> chunks,
@@ -26,6 +26,9 @@ public class WorldData
     {
         chunkCheckerValues = new int[cc.Count * 3];
         int index = 0;
+        hideTerrain = WorldCreator.hideTerrain;
+        useCave = WorldCreator.useCaves;
+
         foreach (Vector3Int vector in cc)
         {
             chunkCheckerValues[index] = vector.x;
@@ -83,7 +86,7 @@ public static class WorldSaver
     public static List<string> allFiles;
     static string CreateBuildFileName()
     {
-        return $"{Application.persistentDataPath}/savedata/World_{System.DateTime.Today.ToString().Replace(" ", "").Replace(":", "").Replace(".", "")}.json";
+        return $"{Application.persistentDataPath}/savedata/World_{System.DateTime.Now.ToString().Replace(" ", "").Replace(":", "").Replace(".", "")}.json";
     }
     static string LoadBuildFileName(int index)
     {

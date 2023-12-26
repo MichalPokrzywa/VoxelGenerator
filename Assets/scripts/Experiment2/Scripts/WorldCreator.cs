@@ -58,15 +58,16 @@ public class WorldCreator : MonoBehaviour
             
         }
     }
-    public void StartWorld(WorldVisualization chosenWorldVisualization,Vector3Int dataVector, bool useCaveschoose)
+    public void StartWorld(WorldVisualization chosenWorldVisualization,Vector3Int dataVector, bool useCaveschoose,bool isHideTerrain)
     {
         worldVisualization = chosenWorldVisualization;
         worldVisualization.CreateSettings();
         worldDimensions = new Vector3Int(dataVector.x, (int)(worldVisualization.perlinSettings[0].heightScale + worldVisualization.perlinSettings[0].heightOffset), dataVector.x);
         chunkDimensions = new Vector3Int(dataVector.y, dataVector.y, dataVector.y);
         drawRadius = dataVector.z;
-        hideTerrain = false;
+        hideTerrain = isHideTerrain;
         useCaves = useCaveschoose;
+        Debug.Log(hideTerrain);
         Debug.Log(worldVisualization);
         UIManager.instance.ChangeToLoading();
         LoadingUI.instance.SetMaxValue(worldDimensions.x * worldDimensions.z);
