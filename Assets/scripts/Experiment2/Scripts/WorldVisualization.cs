@@ -25,7 +25,8 @@ public class WorldVisualization : MonoBehaviour
         {
             calculate = new CalculateBlockTypesJobs();
         }
-        gameObject.SetActive(false);
+        if(perlinGraphers.Count > 0 || perlinGrapher3D != null)
+            gameObject.SetActive(false);
     }
 
     public void CreateSettings()

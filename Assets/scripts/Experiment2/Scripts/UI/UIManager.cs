@@ -37,4 +37,9 @@ public class UIManager : MonoBehaviour
         gameHub.SetActive(true);
     }
 
+    public void CloseApp()
+    {
+        Application.Quit();
+    }
+
 }
