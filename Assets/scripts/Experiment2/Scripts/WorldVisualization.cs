@@ -17,6 +17,7 @@ public class WorldVisualization : MonoBehaviour
         foreach (PerlinGrapher child in transform.GetComponentsInChildren<PerlinGrapher>())
         {
             Debug.Log(child.gameObject.name);
+            child.StartSetup();
             perlinGraphers.Add(child);
         }
 
@@ -24,6 +25,7 @@ public class WorldVisualization : MonoBehaviour
         {
             calculate = new CalculateBlockTypesJobs();
         }
+        gameObject.SetActive(false);
     }
 
     public void CreateSettings()

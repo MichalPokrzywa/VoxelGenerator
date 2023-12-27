@@ -2902,11 +2902,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   perlinGrapherSettings: {fileID: 0}
+  perlin3DGrapherSettings: {fileID: 0}
   heightScaleInputField: {fileID: 4974331435729552544}
   scaleSlider: {fileID: 4974331434011035411}
   octavesInputField: {fileID: 4974331435223936207}
   probabilitySlider: {fileID: 4974331435963601447}
   heightOffsetInputField: {fileID: 559532348389009762}
+  background: {fileID: 4974331434842281471}
 --- !u!1 &4974331435638913373
 GameObject:
   m_ObjectHideFlags: 0

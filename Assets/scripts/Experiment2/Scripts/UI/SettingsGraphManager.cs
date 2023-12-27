@@ -14,8 +14,8 @@ public class SettingsGraphManager : MonoBehaviour
     [SerializeField] TMP_InputField octavesInputField;
     [SerializeField] Slider probabilitySlider;
     [SerializeField] TMP_InputField heightOffsetInputField;
+    [SerializeField] Image background;
 
-    // Start is called before the first frame update
     void Start()
     {
         if (perlinGrapherSettings != null)
@@ -25,6 +25,7 @@ public class SettingsGraphManager : MonoBehaviour
             octavesInputField.text = perlinGrapherSettings.octaves.ToString();
             probabilitySlider.value = perlinGrapherSettings.probability;
             heightOffsetInputField.text = perlinGrapherSettings.heightOffset.ToString();
+            background.color = perlinGrapherSettings.lineMaterial.color;
         }
         else
         {
@@ -43,7 +44,7 @@ public class SettingsGraphManager : MonoBehaviour
         probabilitySlider.onValueChanged.AddListener(delegate { ProbabilityValueChangeCheck(); });
         heightOffsetInputField.onEndEdit.AddListener(delegate { HeightOffsetValueChangeCheck(); });
     }
-    // Invoked when the value of the text field changes.
+
     public void HeightScaleValueChangeCheck()
     {
         if (perlinGrapherSettings != null)

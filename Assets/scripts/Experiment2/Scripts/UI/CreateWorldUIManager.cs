@@ -28,6 +28,10 @@ public class CreateWorldUIManager : MonoBehaviour
         showGraphs.onClick.AddListener(CheckGraphs);
         caveToggle.onValueChanged.AddListener(delegate { ChangeColor(); });
         hideWorld.onValueChanged.AddListener(delegate {ChangeHideTerrain();});
+        menuDropdown.value = 0;
+        avaibleMenus[menuDropdown.value].gameObject.SetActive(true);
+        avaibleMenus[menuDropdown.value].gameObject.GetComponent<GenerationWorldUI>().worldVisualization.gameObject.SetActive(true);
+        menuDropdown.RefreshShownValue();
     }
 
     public void ChooseMenu()
@@ -37,6 +41,11 @@ public class CreateWorldUIManager : MonoBehaviour
         avaibleMenus[menuDropdown.value].gameObject.SetActive(true);
         avaibleMenus[menuDropdown.value].gameObject.GetComponent<GenerationWorldUI>().worldVisualization.gameObject.SetActive(true);
         currentIndexOfDropdown = menuDropdown.value;
+    }
+
+    public void RefreshMenu()
+    {
+
     }
 
     public void ChangeHideTerrain()

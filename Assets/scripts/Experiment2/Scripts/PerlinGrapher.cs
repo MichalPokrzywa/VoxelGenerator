@@ -14,14 +14,24 @@ public class PerlinGrapher : MonoBehaviour
     [Range(0,1)]
     public float probability = 1;
     public Material lineMaterial;
+    bool isInitComplete =false;
     void Start()
     {
+        if (!isInitComplete)
+            StartSetup();
+        Graph();
+    }
+
+    public void StartSetup()
+    {
+        
         lr = this.GetComponent<LineRenderer>();
         lr.positionCount = 100;
         Material newMaterial = new Material(lineMaterial);
-        newMaterial.color = new Color(Random.value, Random.value, Random.value); ;
+        newMaterial.color = new Color(Random.value, Random.value, Random.value);
+        lineMaterial = newMaterial;
         lr.material = newMaterial;
-        Graph();
+        isInitComplete = true;
     }
 
     public void Graph()
