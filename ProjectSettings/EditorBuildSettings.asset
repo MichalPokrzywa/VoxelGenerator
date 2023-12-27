@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/scripts/Experiment2/Scenes/BlockyWorld.unity
+    path: Assets/scripts/Experiment2/Scenes/VoxelGeneratorApp.unity
     guid: fdd88c8a2ef494cc292d62f33f1a4dda
   m_configObjects: {}
