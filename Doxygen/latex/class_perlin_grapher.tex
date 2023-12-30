@@ -1,0 +1,153 @@
+\doxysection{Perlin\+Grapher Class Reference}
+\label{class_perlin_grapher}\index{PerlinGrapher@{PerlinGrapher}}
+
+
+Graphs 2D Perlin noise using a Line\+Renderer in Unity.  
+
+
+Inheritance diagram for Perlin\+Grapher\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_perlin_grapher}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ Start\+Setup} ()
+\begin{DoxyCompactList}\small\item\em Initializes the Line\+Renderer and sets up initial parameters. \end{DoxyCompactList}\item 
+void \textbf{ Graph} ()
+\begin{DoxyCompactList}\small\item\em Graphs the 2D Perlin noise using the Line\+Renderer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Line\+Renderer \textbf{ lr}
+\item 
+float \textbf{ height\+Scale} = 2
+\item 
+float \textbf{ scale} = 0.\+5f
+\item 
+int \textbf{ octaves} = 1
+\item 
+float \textbf{ height\+Offset} = 1
+\item 
+float \textbf{ probability} = 1
+\item 
+Material \textbf{ line\+Material}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ Start} ()
+\begin{DoxyCompactList}\small\item\em Called when the script is loaded or a value is changed in the Inspector. \end{DoxyCompactList}\item 
+void \textbf{ On\+Validate} ()
+\begin{DoxyCompactList}\small\item\em Called when the script is loaded or a value is changed in the Inspector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \textbf{ is\+Init\+Complete} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Graphs 2D Perlin noise using a Line\+Renderer in Unity. 
+
+This class is marked with [Execute\+In\+Edit\+Mode] to allow for graphing in the Unity Editor. 
+
+\doxysubsection{Member Function Documentation}
+\label{class_perlin_grapher_ac731c78c5bea1ab41115ca3db135f018} 
+\index{PerlinGrapher@{PerlinGrapher}!Graph@{Graph}}
+\index{Graph@{Graph}!PerlinGrapher@{PerlinGrapher}}
+\doxysubsubsection{Graph()}
+{\footnotesize\ttfamily void Perlin\+Grapher.\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Graphs the 2D Perlin noise using the Line\+Renderer. 
+
+\label{class_perlin_grapher_a0738120ac94e3eb688d3eb7dfaaddd0a} 
+\index{PerlinGrapher@{PerlinGrapher}!OnValidate@{OnValidate}}
+\index{OnValidate@{OnValidate}!PerlinGrapher@{PerlinGrapher}}
+\doxysubsubsection{OnValidate()}
+{\footnotesize\ttfamily void Perlin\+Grapher.\+On\+Validate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Called when the script is loaded or a value is changed in the Inspector. 
+
+\label{class_perlin_grapher_a1d6bfac45772c6e6ad5a0621d64fba5b} 
+\index{PerlinGrapher@{PerlinGrapher}!Start@{Start}}
+\index{Start@{Start}!PerlinGrapher@{PerlinGrapher}}
+\doxysubsubsection{Start()}
+{\footnotesize\ttfamily void Perlin\+Grapher.\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Called when the script is loaded or a value is changed in the Inspector. 
+
+\label{class_perlin_grapher_ab273f6e05daf219deeb341d999dcaa59} 
+\index{PerlinGrapher@{PerlinGrapher}!StartSetup@{StartSetup}}
+\index{StartSetup@{StartSetup}!PerlinGrapher@{PerlinGrapher}}
+\doxysubsubsection{StartSetup()}
+{\footnotesize\ttfamily void Perlin\+Grapher.\+Start\+Setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes the Line\+Renderer and sets up initial parameters. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\label{class_perlin_grapher_a3aecbb483435bc7c8dea3a11a685a3d5} 
+\index{PerlinGrapher@{PerlinGrapher}!heightOffset@{heightOffset}}
+\index{heightOffset@{heightOffset}!PerlinGrapher@{PerlinGrapher}}
+\doxysubsubsection{heightOffset}
+{\footnotesize\ttfamily float Perlin\+Grapher.\+height\+Offset = 1}
+
+Offset applied to the height values in the Perlin noise. \label{class_perlin_grapher_acb236795fb5dc6d9c11eef21ea1fac69} 
+\index{PerlinGrapher@{PerlinGrapher}!heightScale@{heightScale}}
+\index{heightScale@{heightScale}!PerlinGrapher@{PerlinGrapher}}
+\doxysubsubsection{heightScale}
+{\footnotesize\ttfamily float Perlin\+Grapher.\+height\+Scale = 2}
+
+Height scale factor applied to the Perlin noise. \label{class_perlin_grapher_a0e7e3726d656440ce3e3a8c257f35342} 
+\index{PerlinGrapher@{PerlinGrapher}!isInitComplete@{isInitComplete}}
+\index{isInitComplete@{isInitComplete}!PerlinGrapher@{PerlinGrapher}}
+\doxysubsubsection{isInitComplete}
+{\footnotesize\ttfamily bool Perlin\+Grapher.\+is\+Init\+Complete = false\hspace{0.3cm}{\ttfamily [private]}}
+
+Flag indicating whether the initialization is complete. \label{class_perlin_grapher_aaeceddf599e95df5ceeec3a0041633ef} 
+\index{PerlinGrapher@{PerlinGrapher}!lineMaterial@{lineMaterial}}
+\index{lineMaterial@{lineMaterial}!PerlinGrapher@{PerlinGrapher}}
+\doxysubsubsection{lineMaterial}
+{\footnotesize\ttfamily Material Perlin\+Grapher.\+line\+Material}
+
+Material used for the Line\+Renderer. \label{class_perlin_grapher_a60546a34e7d5f6710808b4f5554090ca} 
+\index{PerlinGrapher@{PerlinGrapher}!lr@{lr}}
+\index{lr@{lr}!PerlinGrapher@{PerlinGrapher}}
+\doxysubsubsection{lr}
+{\footnotesize\ttfamily Line\+Renderer Perlin\+Grapher.\+lr}
+
+Line\+Renderer component for drawing the graph. \label{class_perlin_grapher_aa8980ff943109fec94024549df801b79} 
+\index{PerlinGrapher@{PerlinGrapher}!octaves@{octaves}}
+\index{octaves@{octaves}!PerlinGrapher@{PerlinGrapher}}
+\doxysubsubsection{octaves}
+{\footnotesize\ttfamily int Perlin\+Grapher.\+octaves = 1}
+
+Number of octaves used in the Perlin noise calculation. \label{class_perlin_grapher_a0d36f8996f83fc052edbab086313dbbe} 
+\index{PerlinGrapher@{PerlinGrapher}!probability@{probability}}
+\index{probability@{probability}!PerlinGrapher@{PerlinGrapher}}
+\doxysubsubsection{probability}
+{\footnotesize\ttfamily float Perlin\+Grapher.\+probability = 1}
+
+Probability factor influencing the graph appearance. \label{class_perlin_grapher_a9ddfa1b810e6bc2b2dedff4aea6d7a6e} 
+\index{PerlinGrapher@{PerlinGrapher}!scale@{scale}}
+\index{scale@{scale}!PerlinGrapher@{PerlinGrapher}}
+\doxysubsubsection{scale}
+{\footnotesize\ttfamily float Perlin\+Grapher.\+scale = 0.\+5f}
+
+Scale factor influencing the scale of the Perlin noise. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/scripts/\+Experiment2/\+Scripts/\textbf{ Perlin\+Grapher.\+cs}\end{DoxyCompactItemize}

@@ -1,0 +1,102 @@
+\doxysection{Block Class Reference}
+\label{class_block}\index{Block@{Block}}
+
+
+Represents a block in a chunk.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Block} (Vector3 offset, \textbf{ Mesh\+Utils.\+Block\+Type} type, \textbf{ Chunk\+Block} chunk)
+\begin{DoxyCompactList}\small\item\em Constructor for creating a block. \end{DoxyCompactList}\item 
+bool \textbf{ Has\+Solid\+Neighbour} (int x, int y, int z)
+\begin{DoxyCompactList}\small\item\em Checks if there is a solid neighbor at the specified position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Mesh \textbf{ mesh}
+\begin{DoxyCompactList}\small\item\em The mesh associated with the block. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Chunk\+Block} \textbf{ parent\+Chunk}
+\begin{DoxyCompactList}\small\item\em Reference to the parent chunk. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a block in a chunk. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{class_block_aec76bb03260f78a83f3772b3ff7a3cc0} 
+\index{Block@{Block}!Block@{Block}}
+\index{Block@{Block}!Block@{Block}}
+\doxysubsubsection{Block()}
+{\footnotesize\ttfamily Block.\+Block (\begin{DoxyParamCaption}\item[{Vector3}]{offset,  }\item[{\textbf{ Mesh\+Utils\+::\+Block\+Type}}]{type,  }\item[{\textbf{ Chunk\+Block}}]{chunk }\end{DoxyParamCaption})}
+
+
+
+Constructor for creating a block. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em offset} & The offset of the block. \\
+\hline
+{\em type} & The type of the block. \\
+\hline
+{\em chunk} & The parent chunk of the block. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\label{class_block_af77a1aaa0322f0c52db2e18b567bd176} 
+\index{Block@{Block}!HasSolidNeighbour@{HasSolidNeighbour}}
+\index{HasSolidNeighbour@{HasSolidNeighbour}!Block@{Block}}
+\doxysubsubsection{HasSolidNeighbour()}
+{\footnotesize\ttfamily bool Block.\+Has\+Solid\+Neighbour (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{z }\end{DoxyParamCaption})}
+
+
+
+Checks if there is a solid neighbor at the specified position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate. \\
+\hline
+{\em y} & The y-\/coordinate. \\
+\hline
+{\em z} & The z-\/coordinate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if there is a solid neighbor; false otherwise. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\label{class_block_afed21942ae71bb8f376f457e57282aa7} 
+\index{Block@{Block}!mesh@{mesh}}
+\index{mesh@{mesh}!Block@{Block}}
+\doxysubsubsection{mesh}
+{\footnotesize\ttfamily Mesh Block.\+mesh}
+
+
+
+The mesh associated with the block. 
+
+\label{class_block_a9adafc3ce3c25b262da6d3586cf11618} 
+\index{Block@{Block}!parentChunk@{parentChunk}}
+\index{parentChunk@{parentChunk}!Block@{Block}}
+\doxysubsubsection{parentChunk}
+{\footnotesize\ttfamily \textbf{ Chunk\+Block} Block.\+parent\+Chunk\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reference to the parent chunk. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/scripts/\+Experiment2/\+Scripts/\textbf{ Block.\+cs}\end{DoxyCompactItemize}

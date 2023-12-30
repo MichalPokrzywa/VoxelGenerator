@@ -1,3 +1,8 @@
+/**
+ * @file ChunkBlock.cs
+ * @brief Defines the ChunkBlock class responsible for generating and managing chunks of blocks in the world.
+ */
+
 using System.Collections.Generic;
 using Unity.Burst;
 using Unity.Mathematics;
@@ -6,25 +11,51 @@ using Unity.Jobs;
 using UnityEngine;
 using UnityEngine.Rendering;
 
+/**
+ * @class ChunkBlock
+ * @brief Manages the generation and rendering of chunks in the world.
+ */
 public class ChunkBlock : MonoBehaviour
 {
+    /** Material for the chunk's blocks. */
     public Material atlas;
 
+    /** Width of the chunk. */
     public int width = 2;
+
+    /** Height of the chunk. */
     public int height = 2;
+
+    /** Depth of the chunk. */
     public int depth = 2;
 
+    /** 3D array to store individual blocks in the chunk. */
     public Block[,,] blocks;
+
+    /** Array to store block types for each position in the chunk. */
     public MeshUtils.BlockType[] cData;
+
+    /** Mesh renderer for the chunk. */
     public MeshRenderer meshRenderer;
 
+    /** Location of the chunk in the world. */
     public Vector3 location;
 
+    /** Instance of the CalculateBlockTypes class. */
     CalculateBlockTypes calculateBlockTypes;
+
+    /** Instance of the CalculateBlockTypesJobs class. */
     CalculateBlockTypesJobs calculateBlockTypesJobs;
+
+    /** Job handle for parallel jobs. */
     JobHandle handle;
+
+    /** Array of random numbers for block generation. */
     public NativeArray<Unity.Mathematics.Random> RandomArray { get; private set; }
 
+    /**
+     * @brief Builds the chunk by generating block types and initializing block instances.
+     */
     void BuildChunk()
     {
         int blockCount = width * depth * height;
@@ -48,6 +79,12 @@ public class ChunkBlock : MonoBehaviour
         RandomArray.Dispose();
     }
 
+    /**
+     * @brief Creates a chunk with the specified dimensions and position.
+     * @param dimension The dimensions of the chunk.
+     * @param position The position of the chunk in the world.
+     * @param rebuildBlocks Whether to rebuild blocks for the chunk.
+     */
     public void CreateChunk(Vector3 dimension, Vector3 position, bool rebuildBlocks = true)
     {
         location = position;
@@ -77,8 +114,7 @@ public class ChunkBlock : MonoBehaviour
             {
                 for (int x = 0; x < width; x++)
                 {
-                    blocks[x, y, z] = new Block(new Vector3(x, y, z) + location, cData[x + width * (y + depth * z)],
-                        this);
+                    blocks[x, y, z] = new Block(new Vector3(x, y, z) + location, cData[x + width * (y + depth * z)], this);
                     if (blocks[x, y, z].mesh != null)
                     {
                         inputMeshes.Add(blocks[x, y, z].mesh);
@@ -101,7 +137,7 @@ public class ChunkBlock : MonoBehaviour
         jobs.outputMesh.SetVertexBufferParams(vertexStart,
             new VertexAttributeDescriptor(VertexAttribute.Position),
             new VertexAttributeDescriptor(VertexAttribute.Normal, stream: 1),
-            new  (VertexAttribute.TexCoord0, stream: 2));
+            new VertexAttributeDescriptor(VertexAttribute.TexCoord0, stream: 2));
 
         var handle = jobs.Schedule(inputMeshes.Count, 4);
         var newMesh = new Mesh();
@@ -125,14 +161,29 @@ public class ChunkBlock : MonoBehaviour
         meshCollider.sharedMesh = mf.mesh;
     }
 
+    /**
+     * @struct ProcessMeshDataJob
+     * @brief Job for processing mesh data in parallel.
+     */
     [BurstCompile]
     struct ProcessMeshDataJob : IJobParallelFor
     {
+        /** Read-only array of mesh data. */
         [ReadOnly] public Mesh.MeshDataArray meshData;
+
+        /** Output mesh data. */
         public Mesh.MeshData outputMesh;
+
+        /** Array to store the start index of each vertex in the output mesh. */
         public NativeArray<int> vertexStart;
+
+        /** Array to store the start index of each triangle in the output mesh. */
         public NativeArray<int> triStart;
 
+        /**
+         * @brief Executes the job in parallel for each mesh.
+         * @param index The index of the mesh data to process.
+         */
         public void Execute(int index)
         {
             var data = meshData[index];

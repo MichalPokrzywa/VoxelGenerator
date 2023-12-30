@@ -1,0 +1,82 @@
+\doxysection{Chunk\+Block.\+Process\+Mesh\+Data\+Job Struct Reference}
+\label{struct_chunk_block_1_1_process_mesh_data_job}\index{ChunkBlock.ProcessMeshDataJob@{ChunkBlock.ProcessMeshDataJob}}
+
+
+Job for processing mesh data in parallel.  
+
+
+Inheritance diagram for Chunk\+Block.\+Process\+Mesh\+Data\+Job\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{struct_chunk_block_1_1_process_mesh_data_job}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ Execute} (int index)
+\begin{DoxyCompactList}\small\item\em Executes the job in parallel for each mesh. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Mesh.\+Mesh\+Data\+Array \textbf{ mesh\+Data}
+\item 
+Mesh.\+Mesh\+Data \textbf{ output\+Mesh}
+\item 
+Native\+Array$<$ int $>$ \textbf{ vertex\+Start}
+\item 
+Native\+Array$<$ int $>$ \textbf{ tri\+Start}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Job for processing mesh data in parallel. 
+
+\doxysubsection{Member Function Documentation}
+\label{struct_chunk_block_1_1_process_mesh_data_job_a2e51ac69c27aaefade0fb0e08a1ceb0c} 
+\index{ChunkBlock.ProcessMeshDataJob@{ChunkBlock.ProcessMeshDataJob}!Execute@{Execute}}
+\index{Execute@{Execute}!ChunkBlock.ProcessMeshDataJob@{ChunkBlock.ProcessMeshDataJob}}
+\doxysubsubsection{Execute()}
+{\footnotesize\ttfamily void Chunk\+Block.\+Process\+Mesh\+Data\+Job.\+Execute (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Executes the job in parallel for each mesh. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the mesh data to process. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\label{struct_chunk_block_1_1_process_mesh_data_job_a8308eced3d320a7a9c958a18bdecb53e} 
+\index{ChunkBlock.ProcessMeshDataJob@{ChunkBlock.ProcessMeshDataJob}!meshData@{meshData}}
+\index{meshData@{meshData}!ChunkBlock.ProcessMeshDataJob@{ChunkBlock.ProcessMeshDataJob}}
+\doxysubsubsection{meshData}
+{\footnotesize\ttfamily Mesh.\+Mesh\+Data\+Array Chunk\+Block.\+Process\+Mesh\+Data\+Job.\+mesh\+Data}
+
+Read-\/only array of mesh data. \label{struct_chunk_block_1_1_process_mesh_data_job_aa6e30edb7d93c00a7dcc9f0cc816c9a2} 
+\index{ChunkBlock.ProcessMeshDataJob@{ChunkBlock.ProcessMeshDataJob}!outputMesh@{outputMesh}}
+\index{outputMesh@{outputMesh}!ChunkBlock.ProcessMeshDataJob@{ChunkBlock.ProcessMeshDataJob}}
+\doxysubsubsection{outputMesh}
+{\footnotesize\ttfamily Mesh.\+Mesh\+Data Chunk\+Block.\+Process\+Mesh\+Data\+Job.\+output\+Mesh}
+
+Output mesh data. \label{struct_chunk_block_1_1_process_mesh_data_job_a4f68d560d10bfe6efe6aa2da1ca8a102} 
+\index{ChunkBlock.ProcessMeshDataJob@{ChunkBlock.ProcessMeshDataJob}!triStart@{triStart}}
+\index{triStart@{triStart}!ChunkBlock.ProcessMeshDataJob@{ChunkBlock.ProcessMeshDataJob}}
+\doxysubsubsection{triStart}
+{\footnotesize\ttfamily Native\+Array$<$int$>$ Chunk\+Block.\+Process\+Mesh\+Data\+Job.\+tri\+Start}
+
+Array to store the start index of each triangle in the output mesh. \label{struct_chunk_block_1_1_process_mesh_data_job_a5679de067d21a3d4977e28e06d1d8759} 
+\index{ChunkBlock.ProcessMeshDataJob@{ChunkBlock.ProcessMeshDataJob}!vertexStart@{vertexStart}}
+\index{vertexStart@{vertexStart}!ChunkBlock.ProcessMeshDataJob@{ChunkBlock.ProcessMeshDataJob}}
+\doxysubsubsection{vertexStart}
+{\footnotesize\ttfamily Native\+Array$<$int$>$ Chunk\+Block.\+Process\+Mesh\+Data\+Job.\+vertex\+Start}
+
+Array to store the start index of each vertex in the output mesh. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/scripts/\+Experiment2/\+Scripts/\textbf{ Chunk\+Block.\+cs}\end{DoxyCompactItemize}

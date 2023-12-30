@@ -1,0 +1,125 @@
+\doxysection{Perlin3\+DGrapher Class Reference}
+\label{class_perlin3_d_grapher}\index{Perlin3DGrapher@{Perlin3DGrapher}}
+
+
+Graphs 3D Perlin noise in a 3D grid of cubes in Unity.  
+
+
+Inheritance diagram for Perlin3\+DGrapher\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_perlin3_d_grapher}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ Graph} ()
+\begin{DoxyCompactList}\small\item\em Graphs the 3D Perlin noise in the grid of cubes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \textbf{ height\+Scale} = 2
+\item 
+float \textbf{ scale} = 0.\+5f
+\item 
+int \textbf{ octaves} = 1
+\item 
+float \textbf{ height\+Offset} = 1
+\item 
+float \textbf{ draw\+Cut\+Off} = 1
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ Create\+Cubes} ()
+\begin{DoxyCompactList}\small\item\em Creates a grid of cubes in the scene. \end{DoxyCompactList}\item 
+void \textbf{ On\+Validate} ()
+\begin{DoxyCompactList}\small\item\em Called when the script is loaded or a value is changed in the Inspector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Vector3 \textbf{ dimensions} = new Vector3(10, 10, 10)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Graphs 3D Perlin noise in a 3D grid of cubes in Unity. 
+
+This class is marked with [Execute\+In\+Edit\+Mode] to allow for graphing in the Unity Editor. 
+
+\doxysubsection{Member Function Documentation}
+\label{class_perlin3_d_grapher_a465d9c244c23e3d31526c1ad78abbb36} 
+\index{Perlin3DGrapher@{Perlin3DGrapher}!CreateCubes@{CreateCubes}}
+\index{CreateCubes@{CreateCubes}!Perlin3DGrapher@{Perlin3DGrapher}}
+\doxysubsubsection{CreateCubes()}
+{\footnotesize\ttfamily void Perlin3\+DGrapher.\+Create\+Cubes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Creates a grid of cubes in the scene. 
+
+\label{class_perlin3_d_grapher_af0ba06d36a64a677c27f08dd0f249bcc} 
+\index{Perlin3DGrapher@{Perlin3DGrapher}!Graph@{Graph}}
+\index{Graph@{Graph}!Perlin3DGrapher@{Perlin3DGrapher}}
+\doxysubsubsection{Graph()}
+{\footnotesize\ttfamily void Perlin3\+DGrapher.\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Graphs the 3D Perlin noise in the grid of cubes. 
+
+\label{class_perlin3_d_grapher_ab73fcacf40efb52a852d11e174d82bfd} 
+\index{Perlin3DGrapher@{Perlin3DGrapher}!OnValidate@{OnValidate}}
+\index{OnValidate@{OnValidate}!Perlin3DGrapher@{Perlin3DGrapher}}
+\doxysubsubsection{OnValidate()}
+{\footnotesize\ttfamily void Perlin3\+DGrapher.\+On\+Validate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Called when the script is loaded or a value is changed in the Inspector. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\label{class_perlin3_d_grapher_aef50275c96698b3e36aeab4d3b247420} 
+\index{Perlin3DGrapher@{Perlin3DGrapher}!dimensions@{dimensions}}
+\index{dimensions@{dimensions}!Perlin3DGrapher@{Perlin3DGrapher}}
+\doxysubsubsection{dimensions}
+{\footnotesize\ttfamily Vector3 Perlin3\+DGrapher.\+dimensions = new Vector3(10, 10, 10)\hspace{0.3cm}{\ttfamily [private]}}
+
+Dimensions of the 3D grid. \label{class_perlin3_d_grapher_a6c28f3dc4d39e112a0da62467bfaa1cd} 
+\index{Perlin3DGrapher@{Perlin3DGrapher}!drawCutOff@{drawCutOff}}
+\index{drawCutOff@{drawCutOff}!Perlin3DGrapher@{Perlin3DGrapher}}
+\doxysubsubsection{drawCutOff}
+{\footnotesize\ttfamily float Perlin3\+DGrapher.\+draw\+Cut\+Off = 1}
+
+Cutoff value for drawing cubes based on the Perlin noise. \label{class_perlin3_d_grapher_a11b5c96df237657d2f12485d56ad8e00} 
+\index{Perlin3DGrapher@{Perlin3DGrapher}!heightOffset@{heightOffset}}
+\index{heightOffset@{heightOffset}!Perlin3DGrapher@{Perlin3DGrapher}}
+\doxysubsubsection{heightOffset}
+{\footnotesize\ttfamily float Perlin3\+DGrapher.\+height\+Offset = 1}
+
+Offset applied to the height values in the Perlin noise. \label{class_perlin3_d_grapher_ac54f6debd5bb1185e90927f2e39b2fb2} 
+\index{Perlin3DGrapher@{Perlin3DGrapher}!heightScale@{heightScale}}
+\index{heightScale@{heightScale}!Perlin3DGrapher@{Perlin3DGrapher}}
+\doxysubsubsection{heightScale}
+{\footnotesize\ttfamily float Perlin3\+DGrapher.\+height\+Scale = 2}
+
+Height scale factor applied to the Perlin noise. \label{class_perlin3_d_grapher_a1936f6c86a32104b8010347ccee7f0be} 
+\index{Perlin3DGrapher@{Perlin3DGrapher}!octaves@{octaves}}
+\index{octaves@{octaves}!Perlin3DGrapher@{Perlin3DGrapher}}
+\doxysubsubsection{octaves}
+{\footnotesize\ttfamily int Perlin3\+DGrapher.\+octaves = 1}
+
+Number of octaves used in the Perlin noise calculation. \label{class_perlin3_d_grapher_ab0403d2f6d89a8c870f7641090eefba7} 
+\index{Perlin3DGrapher@{Perlin3DGrapher}!scale@{scale}}
+\index{scale@{scale}!Perlin3DGrapher@{Perlin3DGrapher}}
+\doxysubsubsection{scale}
+{\footnotesize\ttfamily float Perlin3\+DGrapher.\+scale = 0.\+5f}
+
+Scale factor influencing the scale of the Perlin noise. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/scripts/\+Experiment2/\+Scripts/\textbf{ Perlin3\+DGrapher.\+cs}\end{DoxyCompactItemize}

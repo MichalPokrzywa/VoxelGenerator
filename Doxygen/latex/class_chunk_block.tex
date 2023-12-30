@@ -1,0 +1,179 @@
+\doxysection{Chunk\+Block Class Reference}
+\label{class_chunk_block}\index{ChunkBlock@{ChunkBlock}}
+
+
+Manages the generation and rendering of chunks in the world.  
+
+
+Inheritance diagram for Chunk\+Block\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_chunk_block}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ Process\+Mesh\+Data\+Job}
+\begin{DoxyCompactList}\small\item\em Job for processing mesh data in parallel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ Create\+Chunk} (Vector3 dimension, Vector3 position, bool rebuild\+Blocks=true)
+\begin{DoxyCompactList}\small\item\em Creates a chunk with the specified dimensions and position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Material \textbf{ atlas}
+\item 
+int \textbf{ width} = 2
+\item 
+int \textbf{ height} = 2
+\item 
+int \textbf{ depth} = 2
+\item 
+\textbf{ Block}[,,] \textbf{ blocks}
+\item 
+\textbf{ Mesh\+Utils.\+Block\+Type}[$\,$] \textbf{ c\+Data}
+\item 
+Mesh\+Renderer \textbf{ mesh\+Renderer}
+\item 
+Vector3 \textbf{ location}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+Native\+Array$<$ Unity.\+Mathematics.\+Random $>$ \textbf{ Random\+Array}\hspace{0.3cm}{\ttfamily  [get, private set]}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ Build\+Chunk} ()
+\begin{DoxyCompactList}\small\item\em Builds the chunk by generating block types and initializing block instances. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Calculate\+Block\+Types} \textbf{ calculate\+Block\+Types}
+\item 
+\textbf{ Calculate\+Block\+Types\+Jobs} \textbf{ calculate\+Block\+Types\+Jobs}
+\item 
+Job\+Handle \textbf{ handle}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages the generation and rendering of chunks in the world. 
+
+\doxysubsection{Member Function Documentation}
+\label{class_chunk_block_af5a86274c614d58ba81f3d5b7e4c0a4b} 
+\index{ChunkBlock@{ChunkBlock}!BuildChunk@{BuildChunk}}
+\index{BuildChunk@{BuildChunk}!ChunkBlock@{ChunkBlock}}
+\doxysubsubsection{BuildChunk()}
+{\footnotesize\ttfamily void Chunk\+Block.\+Build\+Chunk (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Builds the chunk by generating block types and initializing block instances. 
+
+\label{class_chunk_block_ae2a92ac8fe3e87ef0f4360636162cda1} 
+\index{ChunkBlock@{ChunkBlock}!CreateChunk@{CreateChunk}}
+\index{CreateChunk@{CreateChunk}!ChunkBlock@{ChunkBlock}}
+\doxysubsubsection{CreateChunk()}
+{\footnotesize\ttfamily void Chunk\+Block.\+Create\+Chunk (\begin{DoxyParamCaption}\item[{Vector3}]{dimension,  }\item[{Vector3}]{position,  }\item[{bool}]{rebuild\+Blocks = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Creates a chunk with the specified dimensions and position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dimension} & The dimensions of the chunk. \\
+\hline
+{\em position} & The position of the chunk in the world. \\
+\hline
+{\em rebuild\+Blocks} & Whether to rebuild blocks for the chunk. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\label{class_chunk_block_aa9e117b73858c1a566883920873fcf10} 
+\index{ChunkBlock@{ChunkBlock}!atlas@{atlas}}
+\index{atlas@{atlas}!ChunkBlock@{ChunkBlock}}
+\doxysubsubsection{atlas}
+{\footnotesize\ttfamily Material Chunk\+Block.\+atlas}
+
+Material for the chunk\textquotesingle{}s blocks. \label{class_chunk_block_ac65c37726164ba8cf819b35f604c419c} 
+\index{ChunkBlock@{ChunkBlock}!blocks@{blocks}}
+\index{blocks@{blocks}!ChunkBlock@{ChunkBlock}}
+\doxysubsubsection{blocks}
+{\footnotesize\ttfamily \textbf{ Block} [,,] Chunk\+Block.\+blocks}
+
+3D array to store individual blocks in the chunk. \label{class_chunk_block_a3cda52feb9df1e54c58e0af5aca6e12a} 
+\index{ChunkBlock@{ChunkBlock}!calculateBlockTypes@{calculateBlockTypes}}
+\index{calculateBlockTypes@{calculateBlockTypes}!ChunkBlock@{ChunkBlock}}
+\doxysubsubsection{calculateBlockTypes}
+{\footnotesize\ttfamily \textbf{ Calculate\+Block\+Types} Chunk\+Block.\+calculate\+Block\+Types\hspace{0.3cm}{\ttfamily [private]}}
+
+Instance of the \doxyref{Calculate\+Block\+Types}{p.}{struct_calculate_block_types} class. \label{class_chunk_block_a4b8c0854f2fde744cc04f68303e3bbbb} 
+\index{ChunkBlock@{ChunkBlock}!calculateBlockTypesJobs@{calculateBlockTypesJobs}}
+\index{calculateBlockTypesJobs@{calculateBlockTypesJobs}!ChunkBlock@{ChunkBlock}}
+\doxysubsubsection{calculateBlockTypesJobs}
+{\footnotesize\ttfamily \textbf{ Calculate\+Block\+Types\+Jobs} Chunk\+Block.\+calculate\+Block\+Types\+Jobs\hspace{0.3cm}{\ttfamily [private]}}
+
+Instance of the \doxyref{Calculate\+Block\+Types\+Jobs}{p.}{class_calculate_block_types_jobs} class. \label{class_chunk_block_afb765c3ac9f767423119b9c86723bad3} 
+\index{ChunkBlock@{ChunkBlock}!cData@{cData}}
+\index{cData@{cData}!ChunkBlock@{ChunkBlock}}
+\doxysubsubsection{cData}
+{\footnotesize\ttfamily \textbf{ Mesh\+Utils.\+Block\+Type} [$\,$] Chunk\+Block.\+c\+Data}
+
+Array to store block types for each position in the chunk. \label{class_chunk_block_a54af8a17f6b1c1116e1e7b47e0aeb004} 
+\index{ChunkBlock@{ChunkBlock}!depth@{depth}}
+\index{depth@{depth}!ChunkBlock@{ChunkBlock}}
+\doxysubsubsection{depth}
+{\footnotesize\ttfamily int Chunk\+Block.\+depth = 2}
+
+Depth of the chunk. \label{class_chunk_block_abc9b4f1bdc2a40b48f6028f4dd8c0df2} 
+\index{ChunkBlock@{ChunkBlock}!handle@{handle}}
+\index{handle@{handle}!ChunkBlock@{ChunkBlock}}
+\doxysubsubsection{handle}
+{\footnotesize\ttfamily Job\+Handle Chunk\+Block.\+handle\hspace{0.3cm}{\ttfamily [private]}}
+
+Job handle for parallel jobs. \label{class_chunk_block_a589f4c01d92328dabd0e6c1190b0a798} 
+\index{ChunkBlock@{ChunkBlock}!height@{height}}
+\index{height@{height}!ChunkBlock@{ChunkBlock}}
+\doxysubsubsection{height}
+{\footnotesize\ttfamily int Chunk\+Block.\+height = 2}
+
+Height of the chunk. \label{class_chunk_block_ae5de817111b9dfd8403d983958952b8f} 
+\index{ChunkBlock@{ChunkBlock}!location@{location}}
+\index{location@{location}!ChunkBlock@{ChunkBlock}}
+\doxysubsubsection{location}
+{\footnotesize\ttfamily Vector3 Chunk\+Block.\+location}
+
+Location of the chunk in the world. \label{class_chunk_block_ab6c37349876d19563bf1facd15e032ff} 
+\index{ChunkBlock@{ChunkBlock}!meshRenderer@{meshRenderer}}
+\index{meshRenderer@{meshRenderer}!ChunkBlock@{ChunkBlock}}
+\doxysubsubsection{meshRenderer}
+{\footnotesize\ttfamily Mesh\+Renderer Chunk\+Block.\+mesh\+Renderer}
+
+Mesh renderer for the chunk. \label{class_chunk_block_aa92e25812cd1b8d93271b4dad1e4a7c5} 
+\index{ChunkBlock@{ChunkBlock}!width@{width}}
+\index{width@{width}!ChunkBlock@{ChunkBlock}}
+\doxysubsubsection{width}
+{\footnotesize\ttfamily int Chunk\+Block.\+width = 2}
+
+Width of the chunk. 
+
+\doxysubsection{Property Documentation}
+\label{class_chunk_block_a99a6c36f54e9b425a24394cc24aec0fa} 
+\index{ChunkBlock@{ChunkBlock}!RandomArray@{RandomArray}}
+\index{RandomArray@{RandomArray}!ChunkBlock@{ChunkBlock}}
+\doxysubsubsection{RandomArray}
+{\footnotesize\ttfamily Native\+Array$<$Unity.\+Mathematics.\+Random$>$ Chunk\+Block.\+Random\+Array\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+Array of random numbers for block generation. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/scripts/\+Experiment2/\+Scripts/\textbf{ Chunk\+Block.\+cs}\end{DoxyCompactItemize}

@@ -1,10 +1,21 @@
+
+/**
+ * @file MeshUtils.cs
+ * @brief Defines utility functions for working with meshes in Unity.
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using VertexData = System.Tuple<UnityEngine.Vector3, UnityEngine.Vector3, UnityEngine.Vector2>;
-
+/**
+ * @class MeshUtils
+ * @brief Provides utility functions for working with meshes in Unity.
+ */
 public static class MeshUtils
-{
+{    /**
+     * @enum BlockType
+     * @brief Represents different types of blocks.
+     */
     public enum BlockType
     {
         GRASSTOP,
@@ -24,7 +35,10 @@ public static class MeshUtils
         CRACK4,
         AIR
     };
-
+    /**
+    * @enum BlockSide
+    * @brief Represents different sides of a block.
+    */
     public enum BlockSide
     {
         BOTTOM,
@@ -34,7 +48,10 @@ public static class MeshUtils
         FRONT,
         BACK
     };
-
+    /**
+ * @var blockUVs
+ * @brief Defines UV coordinates for different block types and sides.
+ */
     public static Vector2[,] blockUVs =
     {
         /*GRASSTOP*/
@@ -113,7 +130,16 @@ public static class MeshUtils
             new Vector2(0.1875f, 0.0625f), new Vector2(0.25f, 0.0625f)
         }
     };
-
+    /**
+     * @brief Calculates 1D Perlin noise at a given position.
+     * @param x The x-coordinate.
+     * @param z The z-coordinate.
+     * @param octaves The number of octaves in the Perlin noise.
+     * @param scale The scale factor.
+     * @param heightScale The height scale factor.
+     * @param heightOffset The height offset.
+     * @return The calculated Perlin noise value.
+     */
     public static float fBM(float x, float z, int octaves, float scale, float heightScale, float heightOffset)
     {
         float total = 0;
@@ -126,7 +152,17 @@ public static class MeshUtils
 
         return total + heightOffset;
     }
-
+    /**
+     * @brief Calculates 3D Perlin noise at a given position.
+     * @param x The x-coordinate.
+     * @param y The y-coordinate.
+     * @param z The z-coordinate.
+     * @param octaves The number of octaves in the Perlin noise.
+     * @param scale The scale factor.
+     * @param heightScale The height scale factor.
+     * @param heightOffset The height offset.
+     * @return The calculated 3D Perlin noise value.
+     */
     public static float fBM3D(float x,float y, float z, int octaves, float scale, float heightScale, float heightOffset)
     {
         float XZ = fBM(x, z, octaves, scale, heightScale, heightOffset);
@@ -138,7 +174,11 @@ public static class MeshUtils
 
         return (XZ + XY + YZ + YX + ZX + ZY) / 6.0f;
     }
-
+    /**
+     * @brief Merges multiple meshes into a single mesh.
+     * @param meshes An array of meshes to merge.
+     * @return The merged mesh.
+     */
     public static Mesh MergeMeshes(Mesh[] meshes)
     {
         Mesh mesh = new Mesh();
@@ -187,7 +227,11 @@ public static class MeshUtils
         mesh.RecalculateBounds();
         return mesh;
     }
-
+    /**
+     * @brief Extracts vertex arrays from a dictionary and assigns them to a mesh.
+     * @param list A dictionary containing vertex data and their corresponding indices.
+     * @param mesh The mesh to assign the vertex arrays.
+     */
     public static void ExtractArrays(Dictionary<VertexData, int> list, Mesh mesh)
     {
         List<Vector3> verts = new List<Vector3>();

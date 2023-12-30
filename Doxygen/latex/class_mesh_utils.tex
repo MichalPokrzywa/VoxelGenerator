@@ -1,0 +1,290 @@
+\doxysection{Mesh\+Utils Class Reference}
+\label{class_mesh_utils}\index{MeshUtils@{MeshUtils}}
+
+
+Provides utility functions for working with meshes in Unity.  
+
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ Block\+Type} \{ \newline
+\textbf{ GRASSTOP}
+, \textbf{ GRASSSIDE}
+, \textbf{ DIRT}
+, \textbf{ WATER}
+, \newline
+\textbf{ STONE}
+, \textbf{ SAND}
+, \textbf{ GOLD}
+, \textbf{ BEDROCK}
+, \newline
+\textbf{ REDSTONE}
+, \textbf{ DIAMOND}
+, \textbf{ NOCRACK}
+, \textbf{ CRACK1}
+, \newline
+\textbf{ CRACK2}
+, \textbf{ CRACK3}
+, \textbf{ CRACK4}
+, \textbf{ AIR}
+ \}
+\begin{DoxyCompactList}\small\item\em Represents different types of blocks. \end{DoxyCompactList}\item 
+enum \textbf{ Block\+Side} \{ \newline
+\textbf{ BOTTOM}
+, \textbf{ TOP}
+, \textbf{ LEFT}
+, \textbf{ RIGHT}
+, \newline
+\textbf{ FRONT}
+, \textbf{ BACK}
+ \}
+\begin{DoxyCompactList}\small\item\em Represents different sides of a block. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static float \textbf{ f\+BM} (float x, float z, int octaves, float scale, float height\+Scale, float height\+Offset)
+\begin{DoxyCompactList}\small\item\em Calculates 1D Perlin noise at a given position. \end{DoxyCompactList}\item 
+static float \textbf{ f\+BM3D} (float x, float y, float z, int octaves, float scale, float height\+Scale, float height\+Offset)
+\begin{DoxyCompactList}\small\item\em Calculates 3D Perlin noise at a given position. \end{DoxyCompactList}\item 
+static Mesh \textbf{ Merge\+Meshes} (Mesh[$\,$] meshes)
+\begin{DoxyCompactList}\small\item\em Merges multiple meshes into a single mesh. \end{DoxyCompactList}\item 
+static void \textbf{ Extract\+Arrays} (Dictionary$<$ \textbf{ Vertex\+Data}, int $>$ list, Mesh mesh)
+\begin{DoxyCompactList}\small\item\em Extracts vertex arrays from a dictionary and assigns them to a mesh. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static Vector2[,] \textbf{ block\+UVs}
+\begin{DoxyCompactList}\small\item\em Defines UV coordinates for different block types and sides. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides utility functions for working with meshes in Unity. 
+
+\doxysubsection{Member Enumeration Documentation}
+\label{class_mesh_utils_a3109ec4cd12e9072dedb4889041d1df3} 
+\index{MeshUtils@{MeshUtils}!BlockSide@{BlockSide}}
+\index{BlockSide@{BlockSide}!MeshUtils@{MeshUtils}}
+\doxysubsubsection{BlockSide}
+{\footnotesize\ttfamily enum \textbf{ Mesh\+Utils.\+Block\+Side}}
+
+
+
+Represents different sides of a block. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BOTTOM@{BOTTOM}!MeshUtils@{MeshUtils}}\index{MeshUtils@{MeshUtils}!BOTTOM@{BOTTOM}}}\label{class_mesh_utils_a3109ec4cd12e9072dedb4889041d1df3a1fabf63de5c96c78e2a40805bcdeb73b} 
+BOTTOM&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TOP@{TOP}!MeshUtils@{MeshUtils}}\index{MeshUtils@{MeshUtils}!TOP@{TOP}}}\label{class_mesh_utils_a3109ec4cd12e9072dedb4889041d1df3a6705777b712ee811e76fb07162081d63} 
+TOP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LEFT@{LEFT}!MeshUtils@{MeshUtils}}\index{MeshUtils@{MeshUtils}!LEFT@{LEFT}}}\label{class_mesh_utils_a3109ec4cd12e9072dedb4889041d1df3a684d325a7303f52e64011467ff5c5758} 
+LEFT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RIGHT@{RIGHT}!MeshUtils@{MeshUtils}}\index{MeshUtils@{MeshUtils}!RIGHT@{RIGHT}}}\label{class_mesh_utils_a3109ec4cd12e9072dedb4889041d1df3a21507b40c80068eda19865706fdc2403} 
+RIGHT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FRONT@{FRONT}!MeshUtils@{MeshUtils}}\index{MeshUtils@{MeshUtils}!FRONT@{FRONT}}}\label{class_mesh_utils_a3109ec4cd12e9072dedb4889041d1df3abb2fe5c916efb43aab8cbb68f997d2ee} 
+FRONT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BACK@{BACK}!MeshUtils@{MeshUtils}}\index{MeshUtils@{MeshUtils}!BACK@{BACK}}}\label{class_mesh_utils_a3109ec4cd12e9072dedb4889041d1df3a1dd26f1f1790f0b56d5752fb0fbecef0} 
+BACK&\\
+\hline
+
+\end{DoxyEnumFields}
+\label{class_mesh_utils_a84624df8d4bcb993748524ddfb47f7af} 
+\index{MeshUtils@{MeshUtils}!BlockType@{BlockType}}
+\index{BlockType@{BlockType}!MeshUtils@{MeshUtils}}
+\doxysubsubsection{BlockType}
+{\footnotesize\ttfamily enum \textbf{ Mesh\+Utils.\+Block\+Type}}
+
+
+
+Represents different types of blocks. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GRASSTOP@{GRASSTOP}!MeshUtils@{MeshUtils}}\index{MeshUtils@{MeshUtils}!GRASSTOP@{GRASSTOP}}}\label{class_mesh_utils_a84624df8d4bcb993748524ddfb47f7afa4469c7d553868018f4d9c8d792f59a91} 
+GRASSTOP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GRASSSIDE@{GRASSSIDE}!MeshUtils@{MeshUtils}}\index{MeshUtils@{MeshUtils}!GRASSSIDE@{GRASSSIDE}}}\label{class_mesh_utils_a84624df8d4bcb993748524ddfb47f7afa7624affd218580a57e2ca4cb6be5eb0a} 
+GRASSSIDE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DIRT@{DIRT}!MeshUtils@{MeshUtils}}\index{MeshUtils@{MeshUtils}!DIRT@{DIRT}}}\label{class_mesh_utils_a84624df8d4bcb993748524ddfb47f7afa3ef5656907af69ff36347e8dc2416744} 
+DIRT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WATER@{WATER}!MeshUtils@{MeshUtils}}\index{MeshUtils@{MeshUtils}!WATER@{WATER}}}\label{class_mesh_utils_a84624df8d4bcb993748524ddfb47f7afa2add2964642f39099cb51edf4a4f5a70} 
+WATER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STONE@{STONE}!MeshUtils@{MeshUtils}}\index{MeshUtils@{MeshUtils}!STONE@{STONE}}}\label{class_mesh_utils_a84624df8d4bcb993748524ddfb47f7afaa63e2adb56a8019132fbe12acda3b7d6} 
+STONE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SAND@{SAND}!MeshUtils@{MeshUtils}}\index{MeshUtils@{MeshUtils}!SAND@{SAND}}}\label{class_mesh_utils_a84624df8d4bcb993748524ddfb47f7afadd8b86e783c5b75c7c9224089b4f239b} 
+SAND&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GOLD@{GOLD}!MeshUtils@{MeshUtils}}\index{MeshUtils@{MeshUtils}!GOLD@{GOLD}}}\label{class_mesh_utils_a84624df8d4bcb993748524ddfb47f7afa2c0898822ab3baf7f93bea86648adb26} 
+GOLD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BEDROCK@{BEDROCK}!MeshUtils@{MeshUtils}}\index{MeshUtils@{MeshUtils}!BEDROCK@{BEDROCK}}}\label{class_mesh_utils_a84624df8d4bcb993748524ddfb47f7afa99754bd8a4582cec06660aa8880e23e5} 
+BEDROCK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{REDSTONE@{REDSTONE}!MeshUtils@{MeshUtils}}\index{MeshUtils@{MeshUtils}!REDSTONE@{REDSTONE}}}\label{class_mesh_utils_a84624df8d4bcb993748524ddfb47f7afa95f9aa00c07fdd99d028d0433b17f00d} 
+REDSTONE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DIAMOND@{DIAMOND}!MeshUtils@{MeshUtils}}\index{MeshUtils@{MeshUtils}!DIAMOND@{DIAMOND}}}\label{class_mesh_utils_a84624df8d4bcb993748524ddfb47f7afa337f43db5edddda90ef2156a9baaed09} 
+DIAMOND&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NOCRACK@{NOCRACK}!MeshUtils@{MeshUtils}}\index{MeshUtils@{MeshUtils}!NOCRACK@{NOCRACK}}}\label{class_mesh_utils_a84624df8d4bcb993748524ddfb47f7afa7a85d7b681a235be071dd89fd692eb29} 
+NOCRACK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CRACK1@{CRACK1}!MeshUtils@{MeshUtils}}\index{MeshUtils@{MeshUtils}!CRACK1@{CRACK1}}}\label{class_mesh_utils_a84624df8d4bcb993748524ddfb47f7afa971fb380ba7923a07f9d10849f43f920} 
+CRACK1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CRACK2@{CRACK2}!MeshUtils@{MeshUtils}}\index{MeshUtils@{MeshUtils}!CRACK2@{CRACK2}}}\label{class_mesh_utils_a84624df8d4bcb993748524ddfb47f7afab08eab5b4e4015bd8d532fec233d9ed0} 
+CRACK2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CRACK3@{CRACK3}!MeshUtils@{MeshUtils}}\index{MeshUtils@{MeshUtils}!CRACK3@{CRACK3}}}\label{class_mesh_utils_a84624df8d4bcb993748524ddfb47f7afadf5fd911a8736a78ade21e85b42533a8} 
+CRACK3&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CRACK4@{CRACK4}!MeshUtils@{MeshUtils}}\index{MeshUtils@{MeshUtils}!CRACK4@{CRACK4}}}\label{class_mesh_utils_a84624df8d4bcb993748524ddfb47f7afaf1b418f9a20030b55677251fa24078a1} 
+CRACK4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AIR@{AIR}!MeshUtils@{MeshUtils}}\index{MeshUtils@{MeshUtils}!AIR@{AIR}}}\label{class_mesh_utils_a84624df8d4bcb993748524ddfb47f7afa2582dd863c1c50525a267e1cbe656929} 
+AIR&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Member Function Documentation}
+\label{class_mesh_utils_a7a2bcf40c02b412b003905f9f0b7a27a} 
+\index{MeshUtils@{MeshUtils}!ExtractArrays@{ExtractArrays}}
+\index{ExtractArrays@{ExtractArrays}!MeshUtils@{MeshUtils}}
+\doxysubsubsection{ExtractArrays()}
+{\footnotesize\ttfamily static void Mesh\+Utils.\+Extract\+Arrays (\begin{DoxyParamCaption}\item[{Dictionary$<$ \textbf{ Vertex\+Data}, int $>$}]{list,  }\item[{Mesh}]{mesh }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Extracts vertex arrays from a dictionary and assigns them to a mesh. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & A dictionary containing vertex data and their corresponding indices. \\
+\hline
+{\em mesh} & The mesh to assign the vertex arrays. \\
+\hline
+\end{DoxyParams}
+\label{class_mesh_utils_ac1567836c81bc9bbab8b4a4f7b40f03e} 
+\index{MeshUtils@{MeshUtils}!fBM@{fBM}}
+\index{fBM@{fBM}!MeshUtils@{MeshUtils}}
+\doxysubsubsection{fBM()}
+{\footnotesize\ttfamily static float Mesh\+Utils.\+f\+BM (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{z,  }\item[{int}]{octaves,  }\item[{float}]{scale,  }\item[{float}]{height\+Scale,  }\item[{float}]{height\+Offset }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Calculates 1D Perlin noise at a given position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate. \\
+\hline
+{\em z} & The z-\/coordinate. \\
+\hline
+{\em octaves} & The number of octaves in the Perlin noise. \\
+\hline
+{\em scale} & The scale factor. \\
+\hline
+{\em height\+Scale} & The height scale factor. \\
+\hline
+{\em height\+Offset} & The height offset. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The calculated Perlin noise value. 
+\end{DoxyReturn}
+\label{class_mesh_utils_ac9d5926e6d80fc14c55e65920b0efa14} 
+\index{MeshUtils@{MeshUtils}!fBM3D@{fBM3D}}
+\index{fBM3D@{fBM3D}!MeshUtils@{MeshUtils}}
+\doxysubsubsection{fBM3D()}
+{\footnotesize\ttfamily static float Mesh\+Utils.\+f\+BM3D (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{z,  }\item[{int}]{octaves,  }\item[{float}]{scale,  }\item[{float}]{height\+Scale,  }\item[{float}]{height\+Offset }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Calculates 3D Perlin noise at a given position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate. \\
+\hline
+{\em y} & The y-\/coordinate. \\
+\hline
+{\em z} & The z-\/coordinate. \\
+\hline
+{\em octaves} & The number of octaves in the Perlin noise. \\
+\hline
+{\em scale} & The scale factor. \\
+\hline
+{\em height\+Scale} & The height scale factor. \\
+\hline
+{\em height\+Offset} & The height offset. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The calculated 3D Perlin noise value. 
+\end{DoxyReturn}
+\label{class_mesh_utils_a82b0a5149809550b04c0da180142bd1e} 
+\index{MeshUtils@{MeshUtils}!MergeMeshes@{MergeMeshes}}
+\index{MergeMeshes@{MergeMeshes}!MeshUtils@{MeshUtils}}
+\doxysubsubsection{MergeMeshes()}
+{\footnotesize\ttfamily static Mesh Mesh\+Utils.\+Merge\+Meshes (\begin{DoxyParamCaption}\item[{Mesh[$\,$]}]{meshes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Merges multiple meshes into a single mesh. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em meshes} & An array of meshes to merge. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The merged mesh. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\label{class_mesh_utils_a1b20452fff80d1bc0b5f8a41825cbc0f} 
+\index{MeshUtils@{MeshUtils}!blockUVs@{blockUVs}}
+\index{blockUVs@{blockUVs}!MeshUtils@{MeshUtils}}
+\doxysubsubsection{blockUVs}
+{\footnotesize\ttfamily Mesh\+Utils.\+block\+UVs\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Defines UV coordinates for different block types and sides. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/scripts/\+Experiment2/\+Scripts/\textbf{ Mesh\+Utils.\+cs}\end{DoxyCompactItemize}

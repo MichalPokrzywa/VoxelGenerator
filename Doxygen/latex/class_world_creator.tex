@@ -1,0 +1,431 @@
+\doxysection{World\+Creator Class Reference}
+\label{class_world_creator}\index{WorldCreator@{WorldCreator}}
+
+
+Generates and manages the game world in Unity.  
+
+
+Inheritance diagram for World\+Creator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_world_creator}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ Save\+World} ()
+\begin{DoxyCompactList}\small\item\em Saves the current state of the world. \end{DoxyCompactList}\item 
+void \textbf{ Start\+World} (\textbf{ World\+Visualization} chosen\+World\+Visualization, Vector3\+Int data\+Vector, bool use\+Caves\+Choose, bool is\+Hide\+Terrain)
+\begin{DoxyCompactList}\small\item\em Initializes the world based on the provided parameters. \end{DoxyCompactList}\item 
+void \textbf{ Start\+Building} (bool from\+File, string file\+Name="{}"{})
+\begin{DoxyCompactList}\small\item\em Initiates the building process of the world. \end{DoxyCompactList}\item 
+void \textbf{ Hide\+Chunk\+Column} (int x, int z)
+\begin{DoxyCompactList}\small\item\em Hides a chunk column at the specified coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \textbf{ chunk\+Prefab}
+\item 
+Game\+Object \textbf{ fpc}
+\item 
+Game\+Object \textbf{ m\+Camera}
+\item 
+int \textbf{ draw\+Radius} = 5
+\item 
+Hash\+Set$<$ Vector3\+Int $>$ \textbf{ chunk\+Checker} = new Hash\+Set$<$Vector3\+Int$>$()
+\item 
+Hash\+Set$<$ Vector2\+Int $>$ \textbf{ chunk\+Columns} = new Hash\+Set$<$Vector2\+Int$>$()
+\item 
+Dictionary$<$ Vector3\+Int, \textbf{ Chunk\+Block} $>$ \textbf{ chunks} = new Dictionary$<$Vector3\+Int, \textbf{ Chunk\+Block}$>$()
+\item 
+bool \textbf{ load} = true
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static Vector3\+Int \textbf{ world\+Dimensions} = new Vector3\+Int(3, 4, 3)
+\item 
+static Vector3\+Int \textbf{ extra\+World\+Dimensions} = new Vector3\+Int(1, 4, 1)
+\item 
+static Vector3\+Int \textbf{ chunk\+Dimensions} = new Vector3\+Int(10, 10, 10)
+\item 
+static \textbf{ World\+Visualization} \textbf{ world\+Visualization}
+\item 
+static bool \textbf{ use\+Caves}
+\item 
+static bool \textbf{ hide\+Terrain}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+static \textbf{ World\+Creator} \textbf{ instance}\hspace{0.3cm}{\ttfamily  [get]}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ Awake} ()
+\begin{DoxyCompactList}\small\item\em Method called when the script instance is being loaded. Ensures only one instance of \doxyref{World\+Creator}{p.}{class_world_creator} exists. \end{DoxyCompactList}\item 
+IEnumerator \textbf{ Build\+Coordinator} ()
+\begin{DoxyCompactList}\small\item\em Coroutine to manage the build tasks. \end{DoxyCompactList}\item 
+IEnumerator \textbf{ Build\+Chunk\+Column} (int x, int z, bool mesh\+Enable=true)
+\begin{DoxyCompactList}\small\item\em Coroutine to build a column of chunks at the specified coordinates. \end{DoxyCompactList}\item 
+IEnumerator \textbf{ Hide\+Collums} (int x, int z)
+\begin{DoxyCompactList}\small\item\em Coroutine to hide columns of chunks based on the player\textquotesingle{}s position. \end{DoxyCompactList}\item 
+IEnumerator \textbf{ Build\+Extra\+World} ()
+\begin{DoxyCompactList}\small\item\em Coroutine to build the extra world for optimization. \end{DoxyCompactList}\item 
+IEnumerator \textbf{ Build\+World} ()
+\begin{DoxyCompactList}\small\item\em Coroutine to build the main world. \end{DoxyCompactList}\item 
+IEnumerator \textbf{ Load\+World\+From\+File} (string file\+Name)
+\begin{DoxyCompactList}\small\item\em Coroutine to load the world from a file. \end{DoxyCompactList}\item 
+void \textbf{ Redraw\+Chunk} (\textbf{ Chunk\+Block} c)
+\begin{DoxyCompactList}\small\item\em Redraws the mesh for a given chunk. \end{DoxyCompactList}\item 
+IEnumerator \textbf{ Build\+Recursive\+World} (int x, int z, int rad)
+\begin{DoxyCompactList}\small\item\em Coroutine to build chunks recursively based on the player\textquotesingle{}s position. \end{DoxyCompactList}\item 
+IEnumerator \textbf{ Update\+World} ()
+\begin{DoxyCompactList}\small\item\em Coroutine to continuously update the world based on the player\textquotesingle{}s position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Vector3\+Int \textbf{ last\+Build\+Position}
+\item 
+Queue$<$ IEnumerator $>$ \textbf{ build\+Queue} = new Queue$<$IEnumerator$>$()
+\item 
+Wait\+For\+Seconds \textbf{ wait\+For\+Seconds} = new Wait\+For\+Seconds(0.\+1f)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \textbf{ World\+Creator} \textbf{ \+\_\+instance}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Generates and manages the game world in Unity. 
+
+\doxysubsection{Member Function Documentation}
+\label{class_world_creator_ad366076f691805b63120dd95c3bee1a5} 
+\index{WorldCreator@{WorldCreator}!Awake@{Awake}}
+\index{Awake@{Awake}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{Awake()}
+{\footnotesize\ttfamily void World\+Creator.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Method called when the script instance is being loaded. Ensures only one instance of \doxyref{World\+Creator}{p.}{class_world_creator} exists. 
+
+\label{class_world_creator_a80f3b48a667105410fdd23d68ed72f92} 
+\index{WorldCreator@{WorldCreator}!BuildChunkColumn@{BuildChunkColumn}}
+\index{BuildChunkColumn@{BuildChunkColumn}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{BuildChunkColumn()}
+{\footnotesize\ttfamily IEnumerator World\+Creator.\+Build\+Chunk\+Column (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{z,  }\item[{bool}]{mesh\+Enable = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Coroutine to build a column of chunks at the specified coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & X-\/coordinate of the chunk column. \\
+\hline
+{\em z} & Z-\/coordinate of the chunk column. \\
+\hline
+{\em mesh\+Enable} & Flag indicating whether the mesh should be enabled for the chunks. \\
+\hline
+\end{DoxyParams}
+\label{class_world_creator_aba1ce92ac5ac54e63153bd39ed23ea08} 
+\index{WorldCreator@{WorldCreator}!BuildCoordinator@{BuildCoordinator}}
+\index{BuildCoordinator@{BuildCoordinator}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{BuildCoordinator()}
+{\footnotesize\ttfamily IEnumerator World\+Creator.\+Build\+Coordinator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Coroutine to manage the build tasks. 
+
+\label{class_world_creator_a66d035c06b0fcab172a06793094295b1} 
+\index{WorldCreator@{WorldCreator}!BuildExtraWorld@{BuildExtraWorld}}
+\index{BuildExtraWorld@{BuildExtraWorld}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{BuildExtraWorld()}
+{\footnotesize\ttfamily IEnumerator World\+Creator.\+Build\+Extra\+World (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Coroutine to build the extra world for optimization. 
+
+\label{class_world_creator_a32ea7df2596e499c079af209084eadd5} 
+\index{WorldCreator@{WorldCreator}!BuildRecursiveWorld@{BuildRecursiveWorld}}
+\index{BuildRecursiveWorld@{BuildRecursiveWorld}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{BuildRecursiveWorld()}
+{\footnotesize\ttfamily IEnumerator World\+Creator.\+Build\+Recursive\+World (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{z,  }\item[{int}]{rad }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Coroutine to build chunks recursively based on the player\textquotesingle{}s position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & X-\/coordinate of the player\textquotesingle{}s position. \\
+\hline
+{\em z} & Z-\/coordinate of the player\textquotesingle{}s position. \\
+\hline
+{\em rad} & Current radius for chunk generation. \\
+\hline
+\end{DoxyParams}
+\label{class_world_creator_af81a0c5e8b9e5959ca717b534c305539} 
+\index{WorldCreator@{WorldCreator}!BuildWorld@{BuildWorld}}
+\index{BuildWorld@{BuildWorld}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{BuildWorld()}
+{\footnotesize\ttfamily IEnumerator World\+Creator.\+Build\+World (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Coroutine to build the main world. 
+
+\label{class_world_creator_a58643ec9bfdffb0b36036358a2d1760f} 
+\index{WorldCreator@{WorldCreator}!HideChunkColumn@{HideChunkColumn}}
+\index{HideChunkColumn@{HideChunkColumn}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{HideChunkColumn()}
+{\footnotesize\ttfamily void World\+Creator.\+Hide\+Chunk\+Column (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{z }\end{DoxyParamCaption})}
+
+
+
+Hides a chunk column at the specified coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & X-\/coordinate of the chunk column. \\
+\hline
+{\em z} & Z-\/coordinate of the chunk column. \\
+\hline
+\end{DoxyParams}
+\label{class_world_creator_ae32a187dcf5e54c0df1b8d3c7ca128b5} 
+\index{WorldCreator@{WorldCreator}!HideCollums@{HideCollums}}
+\index{HideCollums@{HideCollums}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{HideCollums()}
+{\footnotesize\ttfamily IEnumerator World\+Creator.\+Hide\+Collums (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Coroutine to hide columns of chunks based on the player\textquotesingle{}s position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & X-\/coordinate of the player\textquotesingle{}s position. \\
+\hline
+{\em z} & Z-\/coordinate of the player\textquotesingle{}s position. \\
+\hline
+\end{DoxyParams}
+\label{class_world_creator_a89cbf47635c55b5f6d0fd9b158a9417e} 
+\index{WorldCreator@{WorldCreator}!LoadWorldFromFile@{LoadWorldFromFile}}
+\index{LoadWorldFromFile@{LoadWorldFromFile}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{LoadWorldFromFile()}
+{\footnotesize\ttfamily IEnumerator World\+Creator.\+Load\+World\+From\+File (\begin{DoxyParamCaption}\item[{string}]{file\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Coroutine to load the world from a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & Name of the file to load. \\
+\hline
+\end{DoxyParams}
+\label{class_world_creator_aa0e81928202bad1741676565c12d1651} 
+\index{WorldCreator@{WorldCreator}!RedrawChunk@{RedrawChunk}}
+\index{RedrawChunk@{RedrawChunk}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{RedrawChunk()}
+{\footnotesize\ttfamily void World\+Creator.\+Redraw\+Chunk (\begin{DoxyParamCaption}\item[{\textbf{ Chunk\+Block}}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Redraws the mesh for a given chunk. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The \doxyref{Chunk\+Block}{p.}{class_chunk_block} to redraw. \\
+\hline
+\end{DoxyParams}
+\label{class_world_creator_a6511118597047971e9f7a198cc960bbb} 
+\index{WorldCreator@{WorldCreator}!SaveWorld@{SaveWorld}}
+\index{SaveWorld@{SaveWorld}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{SaveWorld()}
+{\footnotesize\ttfamily void World\+Creator.\+Save\+World (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Saves the current state of the world. 
+
+\label{class_world_creator_a431d6ea5712d94d86794e7da36f45341} 
+\index{WorldCreator@{WorldCreator}!StartBuilding@{StartBuilding}}
+\index{StartBuilding@{StartBuilding}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{StartBuilding()}
+{\footnotesize\ttfamily void World\+Creator.\+Start\+Building (\begin{DoxyParamCaption}\item[{bool}]{from\+File,  }\item[{string}]{file\+Name = {\ttfamily "{}"{}} }\end{DoxyParamCaption})}
+
+
+
+Initiates the building process of the world. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from\+File} & Flag indicating whether to load the world from a file. \\
+\hline
+{\em file\+Name} & Name of the file to load if loading from a file. \\
+\hline
+\end{DoxyParams}
+\label{class_world_creator_a9116caaea94a024b5895927f99a8f19c} 
+\index{WorldCreator@{WorldCreator}!StartWorld@{StartWorld}}
+\index{StartWorld@{StartWorld}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{StartWorld()}
+{\footnotesize\ttfamily void World\+Creator.\+Start\+World (\begin{DoxyParamCaption}\item[{\textbf{ World\+Visualization}}]{chosen\+World\+Visualization,  }\item[{Vector3\+Int}]{data\+Vector,  }\item[{bool}]{use\+Caves\+Choose,  }\item[{bool}]{is\+Hide\+Terrain }\end{DoxyParamCaption})}
+
+
+
+Initializes the world based on the provided parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chosen\+World\+Visualization} & The selected model for terrain generation. \\
+\hline
+{\em data\+Vector} & The vector containing world dimensions, chunk dimensions, and draw radius. \\
+\hline
+{\em use\+Caves\+Choose} & Flag indicating whether caves should be used. \\
+\hline
+{\em is\+Hide\+Terrain} & Flag indicating whether terrain should be hidden. \\
+\hline
+\end{DoxyParams}
+\label{class_world_creator_a00a25e1330dc9675adeaf5bb9b946265} 
+\index{WorldCreator@{WorldCreator}!UpdateWorld@{UpdateWorld}}
+\index{UpdateWorld@{UpdateWorld}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{UpdateWorld()}
+{\footnotesize\ttfamily IEnumerator World\+Creator.\+Update\+World (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Coroutine to continuously update the world based on the player\textquotesingle{}s position. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\label{class_world_creator_a4ac32d6288e61fd5f9cb978d1e600a09} 
+\index{WorldCreator@{WorldCreator}!\_instance@{\_instance}}
+\index{\_instance@{\_instance}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{\_instance}
+{\footnotesize\ttfamily \textbf{ World\+Creator} World\+Creator.\+\_\+instance\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Instance of the \doxyref{World\+Creator}{p.}{class_world_creator} to allow for easy access from other scripts. \label{class_world_creator_a82b999cc4ba207ccff6e5948199e6db8} 
+\index{WorldCreator@{WorldCreator}!buildQueue@{buildQueue}}
+\index{buildQueue@{buildQueue}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{buildQueue}
+{\footnotesize\ttfamily Queue$<$IEnumerator$>$ World\+Creator.\+build\+Queue = new Queue$<$IEnumerator$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+Queue for managing coroutine-\/based build tasks. \label{class_world_creator_ad691239539c634abbde5f5a01455d452} 
+\index{WorldCreator@{WorldCreator}!chunkChecker@{chunkChecker}}
+\index{chunkChecker@{chunkChecker}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{chunkChecker}
+{\footnotesize\ttfamily Hash\+Set$<$Vector3\+Int$>$ World\+Creator.\+chunk\+Checker = new Hash\+Set$<$Vector3\+Int$>$()}
+
+Hash\+Set to store positions of generated chunks. \label{class_world_creator_ac0f234cb88484943d5ad3d4f7a40eaa7} 
+\index{WorldCreator@{WorldCreator}!chunkColumns@{chunkColumns}}
+\index{chunkColumns@{chunkColumns}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{chunkColumns}
+{\footnotesize\ttfamily Hash\+Set$<$Vector2\+Int$>$ World\+Creator.\+chunk\+Columns = new Hash\+Set$<$Vector2\+Int$>$()}
+
+Hash\+Set to store column positions of generated chunks. \label{class_world_creator_a147ceeccafb8275edd63250c47f30385} 
+\index{WorldCreator@{WorldCreator}!chunkDimensions@{chunkDimensions}}
+\index{chunkDimensions@{chunkDimensions}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{chunkDimensions}
+{\footnotesize\ttfamily Vector3\+Int World\+Creator.\+chunk\+Dimensions = new Vector3\+Int(10, 10, 10)\hspace{0.3cm}{\ttfamily [static]}}
+
+Dimensions of each chunk in the world. \label{class_world_creator_ab4f6dd665f139b4816932b19babb6288} 
+\index{WorldCreator@{WorldCreator}!chunkPrefab@{chunkPrefab}}
+\index{chunkPrefab@{chunkPrefab}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{chunkPrefab}
+{\footnotesize\ttfamily Game\+Object World\+Creator.\+chunk\+Prefab}
+
+Prefab for the chunk Game\+Object. \label{class_world_creator_a418e1103f60ee4c27c2cc355f10caecd} 
+\index{WorldCreator@{WorldCreator}!chunks@{chunks}}
+\index{chunks@{chunks}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{chunks}
+{\footnotesize\ttfamily Dictionary$<$Vector3\+Int, \textbf{ Chunk\+Block}$>$ World\+Creator.\+chunks = new Dictionary$<$Vector3\+Int, \textbf{ Chunk\+Block}$>$()}
+
+Dictionary to store \doxyref{Chunk\+Block}{p.}{class_chunk_block} instances based on their positions. \label{class_world_creator_a7692d523c8bd59d4c568b47fccdc5c4b} 
+\index{WorldCreator@{WorldCreator}!drawRadius@{drawRadius}}
+\index{drawRadius@{drawRadius}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{drawRadius}
+{\footnotesize\ttfamily int World\+Creator.\+draw\+Radius = 5}
+
+Radius for drawing chunks around the player. \label{class_world_creator_a00ef06ba72e526178b089594eda3e9f1} 
+\index{WorldCreator@{WorldCreator}!extraWorldDimensions@{extraWorldDimensions}}
+\index{extraWorldDimensions@{extraWorldDimensions}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{extraWorldDimensions}
+{\footnotesize\ttfamily Vector3\+Int World\+Creator.\+extra\+World\+Dimensions = new Vector3\+Int(1, 4, 1)\hspace{0.3cm}{\ttfamily [static]}}
+
+Dimensions of the extra world for optimization. \label{class_world_creator_a7168ab740590b4b343cf44fee363dfc2} 
+\index{WorldCreator@{WorldCreator}!fpc@{fpc}}
+\index{fpc@{fpc}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{fpc}
+{\footnotesize\ttfamily Game\+Object World\+Creator.\+fpc}
+
+First-\/person character Game\+Object. \label{class_world_creator_a4d86293a325a00a31a359fb7d24bd695} 
+\index{WorldCreator@{WorldCreator}!hideTerrain@{hideTerrain}}
+\index{hideTerrain@{hideTerrain}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{hideTerrain}
+{\footnotesize\ttfamily bool World\+Creator.\+hide\+Terrain\hspace{0.3cm}{\ttfamily [static]}}
+
+Flag to determine if terrain should be hidden. \label{class_world_creator_a87ee2c98b251ff0f7d6f4b0fece3a75c} 
+\index{WorldCreator@{WorldCreator}!lastBuildPosition@{lastBuildPosition}}
+\index{lastBuildPosition@{lastBuildPosition}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{lastBuildPosition}
+{\footnotesize\ttfamily Vector3\+Int World\+Creator.\+last\+Build\+Position\hspace{0.3cm}{\ttfamily [private]}}
+
+Last built position for optimizing chunk generation. \label{class_world_creator_a64e73818e5687246668a4bf2eb64af23} 
+\index{WorldCreator@{WorldCreator}!load@{load}}
+\index{load@{load}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{load}
+{\footnotesize\ttfamily bool World\+Creator.\+load = true}
+
+Flag to determine if the world should be loaded from a file. \label{class_world_creator_a85bd8670328816426e4653101092b52f} 
+\index{WorldCreator@{WorldCreator}!mCamera@{mCamera}}
+\index{mCamera@{mCamera}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{mCamera}
+{\footnotesize\ttfamily Game\+Object World\+Creator.\+m\+Camera}
+
+Main camera Game\+Object. \label{class_world_creator_a38151876ce189f2285980fc9d741aad7} 
+\index{WorldCreator@{WorldCreator}!useCaves@{useCaves}}
+\index{useCaves@{useCaves}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{useCaves}
+{\footnotesize\ttfamily bool World\+Creator.\+use\+Caves\hspace{0.3cm}{\ttfamily [static]}}
+
+Flag to determine if caves should be used in the world. \label{class_world_creator_a187164e960c02f888dad9d0009be6abb} 
+\index{WorldCreator@{WorldCreator}!waitForSeconds@{waitForSeconds}}
+\index{waitForSeconds@{waitForSeconds}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{waitForSeconds}
+{\footnotesize\ttfamily Wait\+For\+Seconds World\+Creator.\+wait\+For\+Seconds = new Wait\+For\+Seconds(0.\+1f)\hspace{0.3cm}{\ttfamily [private]}}
+
+Wait\+For\+Seconds instance for controlling update intervals. \label{class_world_creator_a867841001e5c0ce56d957daa7556a4c0} 
+\index{WorldCreator@{WorldCreator}!worldDimensions@{worldDimensions}}
+\index{worldDimensions@{worldDimensions}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{worldDimensions}
+{\footnotesize\ttfamily Vector3\+Int World\+Creator.\+world\+Dimensions = new Vector3\+Int(3, 4, 3)\hspace{0.3cm}{\ttfamily [static]}}
+
+Dimensions of the main world. \label{class_world_creator_a7f496a3f0f74767a694eac3e7739bacb} 
+\index{WorldCreator@{WorldCreator}!worldVisualization@{worldVisualization}}
+\index{worldVisualization@{worldVisualization}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{worldVisualization}
+{\footnotesize\ttfamily \textbf{ World\+Visualization} World\+Creator.\+world\+Visualization\hspace{0.3cm}{\ttfamily [static]}}
+
+Instance of the \doxyref{World\+Visualization}{p.}{class_world_visualization} used for creating the world. 
+
+\doxysubsection{Property Documentation}
+\label{class_world_creator_abf1e633aca1ec1755c74f9adeab005f1} 
+\index{WorldCreator@{WorldCreator}!instance@{instance}}
+\index{instance@{instance}!WorldCreator@{WorldCreator}}
+\doxysubsubsection{instance}
+{\footnotesize\ttfamily \textbf{ World\+Creator} World\+Creator.\+instance\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/scripts/\+Experiment2/\+Scripts/\textbf{ World\+Creator.\+cs}\end{DoxyCompactItemize}

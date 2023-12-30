@@ -1,0 +1,141 @@
+\doxysection{UIManager Class Reference}
+\label{class_u_i_manager}\index{UIManager@{UIManager}}
+
+
+Manages UI elements in the game.  
+
+
+Inheritance diagram for UIManager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_u_i_manager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ Change\+To\+Loading} ()
+\begin{DoxyCompactList}\small\item\em Changes UI elements to display loading state. \end{DoxyCompactList}\item 
+void \textbf{ Change\+To\+Hub} ()
+\begin{DoxyCompactList}\small\item\em Changes UI elements to display the game hub state. \end{DoxyCompactList}\item 
+void \textbf{ Close\+App} ()
+\begin{DoxyCompactList}\small\item\em Closes the application. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \textbf{ settings}
+\item 
+Game\+Object \textbf{ visualization}
+\item 
+Game\+Object \textbf{ loading}
+\item 
+Game\+Object \textbf{ game\+Hub}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+static \textbf{ UIManager} \textbf{ instance}\hspace{0.3cm}{\ttfamily  [get]}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ Awake} ()
+\begin{DoxyCompactList}\small\item\em Method called when the script instance is being loaded. Ensures only one instance of \doxyref{UIManager}{p.}{class_u_i_manager} exists. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \textbf{ UIManager} \textbf{ \+\_\+instance}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages UI elements in the game. 
+
+\doxysubsection{Member Function Documentation}
+\label{class_u_i_manager_acc416c0efeedcaf946f3f278127dc241} 
+\index{UIManager@{UIManager}!Awake@{Awake}}
+\index{Awake@{Awake}!UIManager@{UIManager}}
+\doxysubsubsection{Awake()}
+{\footnotesize\ttfamily void UIManager.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Method called when the script instance is being loaded. Ensures only one instance of \doxyref{UIManager}{p.}{class_u_i_manager} exists. 
+
+\label{class_u_i_manager_a95b55c41e990d17b22d643b4d22d9534} 
+\index{UIManager@{UIManager}!ChangeToHub@{ChangeToHub}}
+\index{ChangeToHub@{ChangeToHub}!UIManager@{UIManager}}
+\doxysubsubsection{ChangeToHub()}
+{\footnotesize\ttfamily void UIManager.\+Change\+To\+Hub (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Changes UI elements to display the game hub state. 
+
+\label{class_u_i_manager_a60426efc0a3f91e2b065bc98079a409c} 
+\index{UIManager@{UIManager}!ChangeToLoading@{ChangeToLoading}}
+\index{ChangeToLoading@{ChangeToLoading}!UIManager@{UIManager}}
+\doxysubsubsection{ChangeToLoading()}
+{\footnotesize\ttfamily void UIManager.\+Change\+To\+Loading (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Changes UI elements to display loading state. 
+
+\label{class_u_i_manager_a7763f6ee2d7373c29e63fe44c959d57d} 
+\index{UIManager@{UIManager}!CloseApp@{CloseApp}}
+\index{CloseApp@{CloseApp}!UIManager@{UIManager}}
+\doxysubsubsection{CloseApp()}
+{\footnotesize\ttfamily void UIManager.\+Close\+App (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Closes the application. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\label{class_u_i_manager_ae268ae93231c57af5e302c729f2139d7} 
+\index{UIManager@{UIManager}!\_instance@{\_instance}}
+\index{\_instance@{\_instance}!UIManager@{UIManager}}
+\doxysubsubsection{\_instance}
+{\footnotesize\ttfamily \textbf{ UIManager} UIManager.\+\_\+instance\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Instance of the \doxyref{UIManager}{p.}{class_u_i_manager} to allow for easy access from other scripts. \label{class_u_i_manager_a21f341ab0659dd7868f5ae37371ddfcf} 
+\index{UIManager@{UIManager}!gameHub@{gameHub}}
+\index{gameHub@{gameHub}!UIManager@{UIManager}}
+\doxysubsubsection{gameHub}
+{\footnotesize\ttfamily Game\+Object UIManager.\+game\+Hub}
+
+Reference to the game hub UI Game\+Object. \label{class_u_i_manager_a1fc9e26fa6860dadf7095864cdbe0dde} 
+\index{UIManager@{UIManager}!loading@{loading}}
+\index{loading@{loading}!UIManager@{UIManager}}
+\doxysubsubsection{loading}
+{\footnotesize\ttfamily Game\+Object UIManager.\+loading}
+
+Reference to the loading UI Game\+Object. \label{class_u_i_manager_ab8d62835f4000e7df506986cdbd36a5a} 
+\index{UIManager@{UIManager}!settings@{settings}}
+\index{settings@{settings}!UIManager@{UIManager}}
+\doxysubsubsection{settings}
+{\footnotesize\ttfamily Game\+Object UIManager.\+settings}
+
+Reference to the settings UI Game\+Object. \label{class_u_i_manager_a2e1212ed39a9e953333361fb84efba23} 
+\index{UIManager@{UIManager}!visualization@{visualization}}
+\index{visualization@{visualization}!UIManager@{UIManager}}
+\doxysubsubsection{visualization}
+{\footnotesize\ttfamily Game\+Object UIManager.\+visualization}
+
+Reference to the visualization UI Game\+Object. 
+
+\doxysubsection{Property Documentation}
+\label{class_u_i_manager_a1cc5fa54cf4bf1f23374b14702f6d790} 
+\index{UIManager@{UIManager}!instance@{instance}}
+\index{instance@{instance}!UIManager@{UIManager}}
+\doxysubsubsection{instance}
+{\footnotesize\ttfamily \textbf{ UIManager} UIManager.\+instance\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/scripts/\+Experiment2/\+Scripts/\+UI/\textbf{ UIManager.\+cs}\end{DoxyCompactItemize}

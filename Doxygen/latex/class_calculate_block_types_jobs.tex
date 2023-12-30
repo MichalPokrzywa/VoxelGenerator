@@ -1,0 +1,70 @@
+\doxysection{Calculate\+Block\+Types\+Jobs Class Reference}
+\label{class_calculate_block_types_jobs}\index{CalculateBlockTypesJobs@{CalculateBlockTypesJobs}}
+
+
+Manages the block generation job and assigns values to the generation job instance.  
+
+
+Inheritance diagram for Calculate\+Block\+Types\+Jobs\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.555556cm]{class_calculate_block_types_jobs}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \textbf{ Assign\+Values} (Native\+Array$<$ \textbf{ Mesh\+Utils.\+Block\+Type} $>$ chunk\+Data, int width, int height, Vector3 location, Native\+Array$<$ \textbf{ Random} $>$ randoms)
+\begin{DoxyCompactList}\small\item\em Assigns values to the generation job instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Calculate\+Block\+Types} \textbf{ generation\+Job}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages the block generation job and assigns values to the generation job instance. 
+
+\doxysubsection{Member Function Documentation}
+\label{class_calculate_block_types_jobs_ad318f61515d259f7d332c35ea5277cc9} 
+\index{CalculateBlockTypesJobs@{CalculateBlockTypesJobs}!AssignValues@{AssignValues}}
+\index{AssignValues@{AssignValues}!CalculateBlockTypesJobs@{CalculateBlockTypesJobs}}
+\doxysubsubsection{AssignValues()}
+{\footnotesize\ttfamily virtual void Calculate\+Block\+Types\+Jobs.\+Assign\+Values (\begin{DoxyParamCaption}\item[{Native\+Array$<$ \textbf{ Mesh\+Utils\+::\+Block\+Type} $>$}]{chunk\+Data,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{Vector3}]{location,  }\item[{Native\+Array$<$ \textbf{ Random} $>$}]{randoms }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Assigns values to the generation job instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chunk\+Data} & Native array to store block types. \\
+\hline
+{\em width} & Width of the chunk. \\
+\hline
+{\em height} & Height of the chunk. \\
+\hline
+{\em location} & Location of the chunk in the world. \\
+\hline
+{\em randoms} & Array of random numbers for block generation. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \textbf{ Base\+Calculate\+Block\+Type} \doxyref{}{p.}{class_base_calculate_block_type_ab532bbaf8efb7c4b9f692ffcda0c918d}, \textbf{ Flat\+Calculate\+Block\+Type} \doxyref{}{p.}{class_flat_calculate_block_type_a20f91176f24b9e1ee8fbedd3cb466226}, and \textbf{ Floating\+Islands\+Calculate\+Block\+Type} \doxyref{}{p.}{class_floating_islands_calculate_block_type_ac34b549bac3fcfde5df21de988b9bc32}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\label{class_calculate_block_types_jobs_a7bf6112b69649632e14f70969937c0ae} 
+\index{CalculateBlockTypesJobs@{CalculateBlockTypesJobs}!generationJob@{generationJob}}
+\index{generationJob@{generationJob}!CalculateBlockTypesJobs@{CalculateBlockTypesJobs}}
+\doxysubsubsection{generationJob}
+{\footnotesize\ttfamily \textbf{ Calculate\+Block\+Types} Calculate\+Block\+Types\+Jobs.\+generation\+Job}
+
+Instance of the \doxyref{Calculate\+Block\+Types}{p.}{struct_calculate_block_types} class for block generation. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/scripts/\+Experiment2/\+Scripts/\textbf{ Calculate\+Block\+Types\+Jobs.\+cs}\end{DoxyCompactItemize}

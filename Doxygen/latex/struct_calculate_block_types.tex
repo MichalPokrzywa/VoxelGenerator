@@ -1,0 +1,149 @@
+\doxysection{Calculate\+Block\+Types Struct Reference}
+\label{struct_calculate_block_types}\index{CalculateBlockTypes@{CalculateBlockTypes}}
+
+
+Job structure for parallel block generation.  
+
+
+Inheritance diagram for Calculate\+Block\+Types\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{struct_calculate_block_types}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ Execute} (int i)
+\begin{DoxyCompactList}\small\item\em Executes the block generation job in parallel for each block. \end{DoxyCompactList}\item 
+void \textbf{ Base\+Generator} (int i)
+\begin{DoxyCompactList}\small\item\em Generates blocks based on base terrain settings. \end{DoxyCompactList}\item 
+void \textbf{ Island\+Generator} (int i)
+\begin{DoxyCompactList}\small\item\em Generates blocks for an island terrain. \end{DoxyCompactList}\item 
+void \textbf{ Flat\+Generator} (int i)
+\begin{DoxyCompactList}\small\item\em Generates blocks for a flat terrain. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Native\+Array$<$ \textbf{ Mesh\+Utils.\+Block\+Type} $>$ \textbf{ chunk\+Data}
+\item 
+int \textbf{ width}
+\item 
+int \textbf{ height}
+\item 
+Vector3 \textbf{ location}
+\item 
+Native\+Array$<$ Unity.\+Mathematics.\+Random $>$ \textbf{ randoms}
+\item 
+int \textbf{ function}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Job structure for parallel block generation. 
+
+\doxysubsection{Member Function Documentation}
+\label{struct_calculate_block_types_a3f9aac55a189074623446e53211216ec} 
+\index{CalculateBlockTypes@{CalculateBlockTypes}!BaseGenerator@{BaseGenerator}}
+\index{BaseGenerator@{BaseGenerator}!CalculateBlockTypes@{CalculateBlockTypes}}
+\doxysubsubsection{BaseGenerator()}
+{\footnotesize\ttfamily void Calculate\+Block\+Types.\+Base\+Generator (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Generates blocks based on base terrain settings. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index of the block. \\
+\hline
+\end{DoxyParams}
+\label{struct_calculate_block_types_ae27f0348cd59998a2eb9ed7c965a9e7e} 
+\index{CalculateBlockTypes@{CalculateBlockTypes}!Execute@{Execute}}
+\index{Execute@{Execute}!CalculateBlockTypes@{CalculateBlockTypes}}
+\doxysubsubsection{Execute()}
+{\footnotesize\ttfamily void Calculate\+Block\+Types.\+Execute (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Executes the block generation job in parallel for each block. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index of the block. \\
+\hline
+\end{DoxyParams}
+\label{struct_calculate_block_types_a30d1d2e5a6388b973577386db53a46e4} 
+\index{CalculateBlockTypes@{CalculateBlockTypes}!FlatGenerator@{FlatGenerator}}
+\index{FlatGenerator@{FlatGenerator}!CalculateBlockTypes@{CalculateBlockTypes}}
+\doxysubsubsection{FlatGenerator()}
+{\footnotesize\ttfamily void Calculate\+Block\+Types.\+Flat\+Generator (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Generates blocks for a flat terrain. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index of the block. \\
+\hline
+\end{DoxyParams}
+\label{struct_calculate_block_types_a54b896437d0d7d9fb382e7f56e89fa62} 
+\index{CalculateBlockTypes@{CalculateBlockTypes}!IslandGenerator@{IslandGenerator}}
+\index{IslandGenerator@{IslandGenerator}!CalculateBlockTypes@{CalculateBlockTypes}}
+\doxysubsubsection{IslandGenerator()}
+{\footnotesize\ttfamily void Calculate\+Block\+Types.\+Island\+Generator (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Generates blocks for an island terrain. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index of the block. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\label{struct_calculate_block_types_a453dda55fdf7760f1a3322d78ea1d210} 
+\index{CalculateBlockTypes@{CalculateBlockTypes}!chunkData@{chunkData}}
+\index{chunkData@{chunkData}!CalculateBlockTypes@{CalculateBlockTypes}}
+\doxysubsubsection{chunkData}
+{\footnotesize\ttfamily Native\+Array$<$\textbf{ Mesh\+Utils.\+Block\+Type}$>$ Calculate\+Block\+Types.\+chunk\+Data}
+
+Native array to store block types. \label{struct_calculate_block_types_ad911a29189629d5e82a3c50a1b62cde7} 
+\index{CalculateBlockTypes@{CalculateBlockTypes}!function@{function}}
+\index{function@{function}!CalculateBlockTypes@{CalculateBlockTypes}}
+\doxysubsubsection{function}
+{\footnotesize\ttfamily int Calculate\+Block\+Types.\+function}
+
+Function identifier for block generation. \label{struct_calculate_block_types_a8a97bfce032d34be6e5188dd4ae1ca3c} 
+\index{CalculateBlockTypes@{CalculateBlockTypes}!height@{height}}
+\index{height@{height}!CalculateBlockTypes@{CalculateBlockTypes}}
+\doxysubsubsection{height}
+{\footnotesize\ttfamily int Calculate\+Block\+Types.\+height}
+
+Height of the chunk. \label{struct_calculate_block_types_ae0daaeef2e075297d148c33f457c0a35} 
+\index{CalculateBlockTypes@{CalculateBlockTypes}!location@{location}}
+\index{location@{location}!CalculateBlockTypes@{CalculateBlockTypes}}
+\doxysubsubsection{location}
+{\footnotesize\ttfamily Vector3 Calculate\+Block\+Types.\+location}
+
+Location of the chunk in the world. \label{struct_calculate_block_types_a9cdd0062749b79b5f5a353525e9d477e} 
+\index{CalculateBlockTypes@{CalculateBlockTypes}!randoms@{randoms}}
+\index{randoms@{randoms}!CalculateBlockTypes@{CalculateBlockTypes}}
+\doxysubsubsection{randoms}
+{\footnotesize\ttfamily Native\+Array$<$Unity.\+Mathematics.\+Random$>$ Calculate\+Block\+Types.\+randoms}
+
+Array of random numbers for block generation. \label{struct_calculate_block_types_a58575d0390bcc60510f9493cc4acf648} 
+\index{CalculateBlockTypes@{CalculateBlockTypes}!width@{width}}
+\index{width@{width}!CalculateBlockTypes@{CalculateBlockTypes}}
+\doxysubsubsection{width}
+{\footnotesize\ttfamily int Calculate\+Block\+Types.\+width}
+
+Width of the chunk. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/scripts/\+Experiment2/\+Scripts/\textbf{ Calculate\+Block\+Types\+Jobs.\+cs}\end{DoxyCompactItemize}

@@ -1,18 +1,37 @@
+/**
+ * @file CalculateBlockTypesJobs.cs
+ * @brief Defines the CalculateBlockTypesJobs and CalculateBlockTypes classes for block generation.
+ */
+
 using System;
 using Unity.Collections;
 using Unity.Jobs;
 using UnityEngine;
 using Random = Unity.Mathematics.Random;
 
+/**
+ * @class CalculateBlockTypesJobs
+ * @brief Manages the block generation job and assigns values to the generation job instance.
+ */
 public class CalculateBlockTypesJobs : MonoBehaviour
 {
+    /** Instance of the CalculateBlockTypes class for block generation. */
     public CalculateBlockTypes generationJob;
+
+    /**
+     * @brief Assigns values to the generation job instance.
+     * @param chunkData Native array to store block types.
+     * @param width Width of the chunk.
+     * @param height Height of the chunk.
+     * @param location Location of the chunk in the world.
+     * @param randoms Array of random numbers for block generation.
+     */
     public virtual void AssignValues(NativeArray<MeshUtils.BlockType> chunkData, int width, int height, Vector3 location, NativeArray<Random> randoms)
     {
         generationJob = new CalculateBlockTypes()
         {
             chunkData = chunkData,
-            width = width, 
+            width = width,
             height = height,
             location = location,
             randoms = randoms,
@@ -20,17 +39,36 @@ public class CalculateBlockTypesJobs : MonoBehaviour
         };
     }
 }
+
+/**
+ * @struct CalculateBlockTypes
+ * @brief Job structure for parallel block generation.
+ */
 [Serializable]
 public struct CalculateBlockTypes : IJobParallelFor
 {
-   
+    /** Native array to store block types. */
     public NativeArray<MeshUtils.BlockType> chunkData;
+
+    /** Width of the chunk. */
     public int width;
+
+    /** Height of the chunk. */
     public int height;
+
+    /** Location of the chunk in the world. */
     public Vector3 location;
+
+    /** Array of random numbers for block generation. */
     public NativeArray<Unity.Mathematics.Random> randoms;
+
+    /** Function identifier for block generation. */
     public int function;
 
+    /**
+     * @brief Executes the block generation job in parallel for each block.
+     * @param i Index of the block.
+     */
     public void Execute(int i)
     {
         switch (function)
@@ -52,7 +90,10 @@ public struct CalculateBlockTypes : IJobParallelFor
             }
         }
     }
-
+    /**
+     * @brief Generates blocks based on base terrain settings.
+     * @param i Index of the block.
+     */
     public void BaseGenerator(int i)
     {
         int x = i % width + (int)location.x;
@@ -106,7 +147,10 @@ public struct CalculateBlockTypes : IJobParallelFor
         else
             chunkData[i] = MeshUtils.BlockType.AIR;
     }
-
+    /**
+     * @brief Generates blocks for an island terrain.
+     * @param i Index of the block.
+     */
     public void IslandGenerator(int i)
     {
         int x = i % width + (int)location.x;
@@ -178,7 +222,10 @@ public struct CalculateBlockTypes : IJobParallelFor
             chunkData[i] = MeshUtils.BlockType.AIR;
 
     }
-
+    /**
+     * @brief Generates blocks for a flat terrain.
+     * @param i Index of the block.
+     */
     public void FlatGenerator(int i)
     {
         int x = i % width + (int)location.x;

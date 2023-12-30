@@ -1,0 +1,62 @@
+\doxysection{Flat\+Calculate\+Block\+Type Class Reference}
+\label{class_flat_calculate_block_type}\index{FlatCalculateBlockType@{FlatCalculateBlockType}}
+
+
+Manages the calculation of block types for flat terrain in a Unity environment.  
+
+
+Inheritance diagram for Flat\+Calculate\+Block\+Type\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_flat_calculate_block_type}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \textbf{ Assign\+Values} (Native\+Array$<$ \textbf{ Mesh\+Utils.\+Block\+Type} $>$ chunk\+Data, int width, int height, Vector3 location, Native\+Array$<$ \textbf{ Random} $>$ randoms)
+\begin{DoxyCompactList}\small\item\em Assigns values to the generation job for calculating block types. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \textbf{ Calculate\+Block\+Types\+Jobs}}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Calculate\+Block\+Types} \textbf{ generation\+Job}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages the calculation of block types for flat terrain in a Unity environment. 
+
+\doxysubsection{Member Function Documentation}
+\label{class_flat_calculate_block_type_a20f91176f24b9e1ee8fbedd3cb466226} 
+\index{FlatCalculateBlockType@{FlatCalculateBlockType}!AssignValues@{AssignValues}}
+\index{AssignValues@{AssignValues}!FlatCalculateBlockType@{FlatCalculateBlockType}}
+\doxysubsubsection{AssignValues()}
+{\footnotesize\ttfamily override void Flat\+Calculate\+Block\+Type.\+Assign\+Values (\begin{DoxyParamCaption}\item[{Native\+Array$<$ \textbf{ Mesh\+Utils\+::\+Block\+Type} $>$}]{chunk\+Data,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{Vector3}]{location,  }\item[{Native\+Array$<$ \textbf{ Random} $>$}]{randoms }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Assigns values to the generation job for calculating block types. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chunk\+Data} & Native\+Array of \doxyref{Mesh\+Utils.\+Block\+Type}{p.}{class_mesh_utils_a84624df8d4bcb993748524ddfb47f7af} representing the chunk\textquotesingle{}s block data. \\
+\hline
+{\em width} & Width of the chunk. \\
+\hline
+{\em height} & Height of the chunk. \\
+\hline
+{\em location} & World position of the chunk. \\
+\hline
+{\em randoms} & Native\+Array of Unity.\+Mathematics.\+Random for generating random values. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \textbf{ Calculate\+Block\+Types\+Jobs} \doxyref{}{p.}{class_calculate_block_types_jobs_ad318f61515d259f7d332c35ea5277cc9}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/scripts/\+Experiment2/\+Scripts/\textbf{ Flat\+Calculate\+Block\+Type.\+cs}\end{DoxyCompactItemize}

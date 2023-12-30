@@ -1,0 +1,121 @@
+\doxysection{World\+Saver Class Reference}
+\label{class_world_saver}\index{WorldSaver@{WorldSaver}}
+
+
+Provides methods for saving and loading the game world in Unity.  
+
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \textbf{ Save} (\textbf{ World\+Creator} world\+Creator)
+\begin{DoxyCompactList}\small\item\em Saves the current state of the game world. \end{DoxyCompactList}\item 
+static \textbf{ World\+Data} \textbf{ Load} (string file\+Location)
+\begin{DoxyCompactList}\small\item\em Loads the game world from a specified file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static List$<$ string $>$ \textbf{ all\+Files}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static string \textbf{ Create\+Build\+File\+Name} ()
+\begin{DoxyCompactList}\small\item\em Creates a unique file name for saving the world. \end{DoxyCompactList}\item 
+static string \textbf{ Load\+Build\+File\+Name} (int index)
+\begin{DoxyCompactList}\small\item\em Loads the file name at the specified index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \textbf{ World\+Data} \textbf{ world\+Data}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides methods for saving and loading the game world in Unity. 
+
+\doxysubsection{Member Function Documentation}
+\label{class_world_saver_af74abb7b4f687641e7ee784062ca1323} 
+\index{WorldSaver@{WorldSaver}!CreateBuildFileName@{CreateBuildFileName}}
+\index{CreateBuildFileName@{CreateBuildFileName}!WorldSaver@{WorldSaver}}
+\doxysubsubsection{CreateBuildFileName()}
+{\footnotesize\ttfamily static string World\+Saver.\+Create\+Build\+File\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Creates a unique file name for saving the world. 
+
+\begin{DoxyReturn}{Returns}
+The generated file name. 
+\end{DoxyReturn}
+\label{class_world_saver_ab0234cc1ba6821fbe4ea7e4adbc87c94} 
+\index{WorldSaver@{WorldSaver}!Load@{Load}}
+\index{Load@{Load}!WorldSaver@{WorldSaver}}
+\doxysubsubsection{Load()}
+{\footnotesize\ttfamily static \textbf{ World\+Data} World\+Saver.\+Load (\begin{DoxyParamCaption}\item[{string}]{file\+Location }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Loads the game world from a specified file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Location} & The location of the file to load. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The loaded \doxyref{World\+Data}{p.}{class_world_data} instance. 
+\end{DoxyReturn}
+\label{class_world_saver_ae4e443230d2ee884c7f9d8f3d27153f3} 
+\index{WorldSaver@{WorldSaver}!LoadBuildFileName@{LoadBuildFileName}}
+\index{LoadBuildFileName@{LoadBuildFileName}!WorldSaver@{WorldSaver}}
+\doxysubsubsection{LoadBuildFileName()}
+{\footnotesize\ttfamily static string World\+Saver.\+Load\+Build\+File\+Name (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Loads the file name at the specified index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Index of the file name in the list of available files. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The file name at the specified index. 
+\end{DoxyReturn}
+\label{class_world_saver_a3f53a943b75ecc2eb93988fc0044d887} 
+\index{WorldSaver@{WorldSaver}!Save@{Save}}
+\index{Save@{Save}!WorldSaver@{WorldSaver}}
+\doxysubsubsection{Save()}
+{\footnotesize\ttfamily static void World\+Saver.\+Save (\begin{DoxyParamCaption}\item[{\textbf{ World\+Creator}}]{world\+Creator }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Saves the current state of the game world. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Creator} & Instance of \doxyref{World\+Creator}{p.}{class_world_creator} representing the game world. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\label{class_world_saver_adb885cc5ee0b49ea76a7778ebee986d6} 
+\index{WorldSaver@{WorldSaver}!allFiles@{allFiles}}
+\index{allFiles@{allFiles}!WorldSaver@{WorldSaver}}
+\doxysubsubsection{allFiles}
+{\footnotesize\ttfamily List$<$string$>$ World\+Saver.\+all\+Files\hspace{0.3cm}{\ttfamily [static]}}
+
+List of all available saved files. \label{class_world_saver_ad4853b2f33e029b57df6005768d5de12} 
+\index{WorldSaver@{WorldSaver}!worldData@{worldData}}
+\index{worldData@{worldData}!WorldSaver@{WorldSaver}}
+\doxysubsubsection{worldData}
+{\footnotesize\ttfamily \textbf{ World\+Data} World\+Saver.\+world\+Data\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Instance of \doxyref{World\+Data}{p.}{class_world_data} for storing data during saving and loading. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/scripts/\+Experiment2/\+Scripts/\textbf{ World\+Saver.\+cs}\end{DoxyCompactItemize}

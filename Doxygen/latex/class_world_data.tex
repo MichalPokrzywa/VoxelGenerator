@@ -1,0 +1,168 @@
+\doxysection{World\+Data Class Reference}
+\label{class_world_data}\index{WorldData@{WorldData}}
+
+
+Represents the data structure for saving and loading the game world.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ World\+Data} ()
+\item 
+\textbf{ World\+Data} (Hash\+Set$<$ Vector3\+Int $>$ cc, Hash\+Set$<$ Vector2\+Int $>$ c\+Cols, Dictionary$<$ Vector3\+Int, \textbf{ Chunk\+Block} $>$ chunks, Vector3 fpc, Vector3\+Int world\+Dimension, Vector3\+Int chunk\+Dimension, \textbf{ World\+Visualization} world\+Visualization)
+\begin{DoxyCompactList}\small\item\em Constructor to initialize \doxyref{World\+Data}{p.}{class_world_data} with relevant information from the game world. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int[$\,$] \textbf{ chunk\+Checker\+Values}
+\item 
+int[$\,$] \textbf{ chunk\+Columns\+Values}
+\item 
+int[$\,$] \textbf{ chunk\+Data}
+\item 
+bool[$\,$] \textbf{ chunk\+Visibility}
+\item 
+int \textbf{ fpcX}
+\item 
+int \textbf{ fpcY}
+\item 
+int \textbf{ fpcZ}
+\item 
+int[$\,$] \textbf{ world\+Dimensions}
+\item 
+int[$\,$] \textbf{ chunk\+Dimensions}
+\item 
+\textbf{ Perlin\+Settings}[$\,$] \textbf{ perlin\+Settings}
+\item 
+\textbf{ Calculate\+Block\+Types} \textbf{ calculate\+Block\+Types}
+\item 
+bool \textbf{ hide\+Terrain}
+\item 
+bool \textbf{ use\+Cave}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents the data structure for saving and loading the game world. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{class_world_data_a392cc5b89c786780e310312004a8a70b} 
+\index{WorldData@{WorldData}!WorldData@{WorldData}}
+\index{WorldData@{WorldData}!WorldData@{WorldData}}
+\doxysubsubsection{WorldData()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily World\+Data.\+World\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default constructor. \label{class_world_data_a0f0badbab8a1d9218a50255661696efa} 
+\index{WorldData@{WorldData}!WorldData@{WorldData}}
+\index{WorldData@{WorldData}!WorldData@{WorldData}}
+\doxysubsubsection{WorldData()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily World\+Data.\+World\+Data (\begin{DoxyParamCaption}\item[{Hash\+Set$<$ Vector3\+Int $>$}]{cc,  }\item[{Hash\+Set$<$ Vector2\+Int $>$}]{c\+Cols,  }\item[{Dictionary$<$ Vector3\+Int, \textbf{ Chunk\+Block} $>$}]{chunks,  }\item[{Vector3}]{fpc,  }\item[{Vector3\+Int}]{world\+Dimension,  }\item[{Vector3\+Int}]{chunk\+Dimension,  }\item[{\textbf{ World\+Visualization}}]{world\+Visualization }\end{DoxyParamCaption})}
+
+
+
+Constructor to initialize \doxyref{World\+Data}{p.}{class_world_data} with relevant information from the game world. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cc} & Set of chunk checker positions. \\
+\hline
+{\em c\+Cols} & Set of chunk column positions. \\
+\hline
+{\em chunks} & Dictionary containing \doxyref{Chunk\+Block}{p.}{class_chunk_block} instances. \\
+\hline
+{\em fpc} & Position of the first-\/person character. \\
+\hline
+{\em world\+Dimension} & Dimensions of the game world. \\
+\hline
+{\em chunk\+Dimension} & Dimensions of each chunk. \\
+\hline
+{\em world\+Visualization} & \doxyref{World\+Visualization}{p.}{class_world_visualization} instance for Perlin noise settings. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\label{class_world_data_a18b6b96d00b5c610b35f0ece6461641e} 
+\index{WorldData@{WorldData}!calculateBlockTypes@{calculateBlockTypes}}
+\index{calculateBlockTypes@{calculateBlockTypes}!WorldData@{WorldData}}
+\doxysubsubsection{calculateBlockTypes}
+{\footnotesize\ttfamily \textbf{ Calculate\+Block\+Types} World\+Data.\+calculate\+Block\+Types}
+
+\doxyref{Calculate\+Block\+Types}{p.}{struct_calculate_block_types} instance for generating block types in the world. \label{class_world_data_a5994ff4d84de3a6ab98fd83750d5245d} 
+\index{WorldData@{WorldData}!chunkCheckerValues@{chunkCheckerValues}}
+\index{chunkCheckerValues@{chunkCheckerValues}!WorldData@{WorldData}}
+\doxysubsubsection{chunkCheckerValues}
+{\footnotesize\ttfamily int [$\,$] World\+Data.\+chunk\+Checker\+Values}
+
+Array to store values of chunk checker positions. \label{class_world_data_a5864d3444324e009f02634becf954b01} 
+\index{WorldData@{WorldData}!chunkColumnsValues@{chunkColumnsValues}}
+\index{chunkColumnsValues@{chunkColumnsValues}!WorldData@{WorldData}}
+\doxysubsubsection{chunkColumnsValues}
+{\footnotesize\ttfamily int [$\,$] World\+Data.\+chunk\+Columns\+Values}
+
+Array to store values of chunk column positions. \label{class_world_data_ae1eb1701ec741a502f35785f196e5a4f} 
+\index{WorldData@{WorldData}!chunkData@{chunkData}}
+\index{chunkData@{chunkData}!WorldData@{WorldData}}
+\doxysubsubsection{chunkData}
+{\footnotesize\ttfamily int [$\,$] World\+Data.\+chunk\+Data}
+
+Array to store block data for each chunk. \label{class_world_data_a16495fe2a8c8b8a846b3c0347c206f31} 
+\index{WorldData@{WorldData}!chunkDimensions@{chunkDimensions}}
+\index{chunkDimensions@{chunkDimensions}!WorldData@{WorldData}}
+\doxysubsubsection{chunkDimensions}
+{\footnotesize\ttfamily int [$\,$] World\+Data.\+chunk\+Dimensions}
+
+Array to store the dimensions of each chunk. \label{class_world_data_a74de182f1e5e88ddfcb9a4fe3d9ccf89} 
+\index{WorldData@{WorldData}!chunkVisibility@{chunkVisibility}}
+\index{chunkVisibility@{chunkVisibility}!WorldData@{WorldData}}
+\doxysubsubsection{chunkVisibility}
+{\footnotesize\ttfamily bool [$\,$] World\+Data.\+chunk\+Visibility}
+
+Array to store visibility status for each chunk. \label{class_world_data_a2fc91440f76b48cdfdd3aeb92a22bac6} 
+\index{WorldData@{WorldData}!fpcX@{fpcX}}
+\index{fpcX@{fpcX}!WorldData@{WorldData}}
+\doxysubsubsection{fpcX}
+{\footnotesize\ttfamily int World\+Data.\+fpcX}
+
+X-\/coordinate of the first-\/person character. \label{class_world_data_af268561cddd425f5ebb875423d9edde5} 
+\index{WorldData@{WorldData}!fpcY@{fpcY}}
+\index{fpcY@{fpcY}!WorldData@{WorldData}}
+\doxysubsubsection{fpcY}
+{\footnotesize\ttfamily int World\+Data.\+fpcY}
+
+Y-\/coordinate of the first-\/person character. \label{class_world_data_aba94f2b60aad174f77efbcd07ee26571} 
+\index{WorldData@{WorldData}!fpcZ@{fpcZ}}
+\index{fpcZ@{fpcZ}!WorldData@{WorldData}}
+\doxysubsubsection{fpcZ}
+{\footnotesize\ttfamily int World\+Data.\+fpcZ}
+
+Z-\/coordinate of the first-\/person character. \label{class_world_data_a751a28458cbe1632c60ee8261bf2e99d} 
+\index{WorldData@{WorldData}!hideTerrain@{hideTerrain}}
+\index{hideTerrain@{hideTerrain}!WorldData@{WorldData}}
+\doxysubsubsection{hideTerrain}
+{\footnotesize\ttfamily bool World\+Data.\+hide\+Terrain}
+
+Flag indicating whether terrain should be hidden. \label{class_world_data_af4e2cc574d44eda9ed33c43ec7aaa012} 
+\index{WorldData@{WorldData}!perlinSettings@{perlinSettings}}
+\index{perlinSettings@{perlinSettings}!WorldData@{WorldData}}
+\doxysubsubsection{perlinSettings}
+{\footnotesize\ttfamily \textbf{ Perlin\+Settings} [$\,$] World\+Data.\+perlin\+Settings}
+
+Array to store Perlin noise settings for world generation. \label{class_world_data_a55448ad2c2d97f4f6adc11a8826ac8ce} 
+\index{WorldData@{WorldData}!useCave@{useCave}}
+\index{useCave@{useCave}!WorldData@{WorldData}}
+\doxysubsubsection{useCave}
+{\footnotesize\ttfamily bool World\+Data.\+use\+Cave}
+
+Flag indicating whether caves should be used in world generation. \label{class_world_data_afb013e0eedda59faa17f47cfa948ffd2} 
+\index{WorldData@{WorldData}!worldDimensions@{worldDimensions}}
+\index{worldDimensions@{worldDimensions}!WorldData@{WorldData}}
+\doxysubsubsection{worldDimensions}
+{\footnotesize\ttfamily int [$\,$] World\+Data.\+world\+Dimensions}
+
+Array to store the dimensions of the game world. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/scripts/\+Experiment2/\+Scripts/\textbf{ World\+Saver.\+cs}\end{DoxyCompactItemize}
