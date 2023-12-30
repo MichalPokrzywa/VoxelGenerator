@@ -24,9 +24,8 @@ public class WorldCreator : MonoBehaviour
     public static WorldVisualization worldVisualization;
 
     public HashSet<Vector3Int> chunkChecker = new HashSet<Vector3Int>();
-    public HashSet<Vector2Int> ChunkColumns = new HashSet<Vector2Int>();
+    public HashSet<Vector2Int> chunkColumns = new HashSet<Vector2Int>();
     public Dictionary<Vector3Int, ChunkBlock> chunks = new Dictionary<Vector3Int, ChunkBlock>();
-    public List<GameObject> createdGameObjects = new List<GameObject>();
     Vector3Int lastBuildPosition;
     public bool load = true;
     public static bool useCaves;
@@ -55,10 +54,9 @@ public class WorldCreator : MonoBehaviour
             while (buildQueue.Count > 0)
                 yield return StartCoroutine(buildQueue.Dequeue());
             yield return null;
-            
         }
     }
-    public void StartWorld(WorldVisualization chosenWorldVisualization,Vector3Int dataVector, bool useCaveschoose,bool isHideTerrain)
+    public void StartWorld(WorldVisualization chosenWorldVisualization,Vector3Int dataVector, bool useCavesChoose,bool isHideTerrain)
     {
         worldVisualization = chosenWorldVisualization;
         worldVisualization.CreateSettings();
@@ -66,7 +64,7 @@ public class WorldCreator : MonoBehaviour
         chunkDimensions = new Vector3Int(dataVector.y, dataVector.y, dataVector.y);
         drawRadius = dataVector.z;
         hideTerrain = isHideTerrain;
-        useCaves = useCaveschoose;
+        useCaves = useCavesChoose;
         Debug.Log(hideTerrain);
         Debug.Log(worldVisualization);
         UIManager.instance.ChangeToLoading();
@@ -92,16 +90,14 @@ public class WorldCreator : MonoBehaviour
                 c.CreateChunk(chunkDimensions, position);
                 chunkChecker.Add(position);
                 chunks.Add(position,c);
-                //createdGameObjects.Add(chunk);
             }
-            //GameObject chunk2 = Instantiate(chunks[position].gameObject, chunks[position].gameObject.transform.position, chunks[position].transform.rotation);
             chunks[position].gameObject.SetActive(true);
             chunks[position].meshRenderer.enabled = meshEnable;
 
             yield return null;
 
         }
-        ChunkColumns.Add(new Vector2Int(x, z));
+        chunkColumns.Add(new Vector2Int(x, z));
 
     }
 
@@ -114,13 +110,6 @@ public class WorldCreator : MonoBehaviour
             {
                 chunks[pos].meshRenderer.enabled = false;
                 chunks[pos].gameObject.SetActive(false);
-                //GameObject chunkObject = chunks[pos]?.gameObject; // Retrieve the game object
-                //if (chunkObject != null)
-                //{
-                //    Debug.Log(createdGameObjects.Contains(chunks[pos]?.gameObject));
-                //    Destroy(chunks[pos].gameObject);
-                //}
-                //createdGameObjects.Remove(chunkObject);
             }
         }
     }
@@ -128,7 +117,7 @@ public class WorldCreator : MonoBehaviour
     IEnumerator HideCollums(int x, int z)
     {
         Vector2Int fpcPos = new Vector2Int(x, z);
-        foreach (Vector2Int chunkColumn in ChunkColumns)
+        foreach (Vector2Int chunkColumn in chunkColumns)
         {
             if ((chunkColumn - fpcPos).magnitude >= drawRadius * chunkDimensions.x)
             {
@@ -154,7 +143,6 @@ public class WorldCreator : MonoBehaviour
                 yield return null;
             }
         }
-
 
         for (int z = 0; z < zEnd; z++)
         {
@@ -208,10 +196,10 @@ public class WorldCreator : MonoBehaviour
                 worldData.chunkCheckerValues[i + 2]));
         }
 
-        ChunkColumns.Clear();
+        chunkColumns.Clear();
         for (int i = 0; i < worldData.chunkColumnsValues.Length; i+=2)
         {
-            ChunkColumns.Add(new Vector2Int(worldData.chunkColumnsValues[i],
+            chunkColumns.Add(new Vector2Int(worldData.chunkColumnsValues[i],
                 worldData.chunkColumnsValues[i + 1]));
         }
 
@@ -272,7 +260,7 @@ public class WorldCreator : MonoBehaviour
         yield return null;
     }
 
-    WaitForSeconds waitForSeconds = new WaitForSeconds(0.5f);
+    WaitForSeconds waitForSeconds = new WaitForSeconds(0.1f);
     IEnumerator UpdateWorld()
     {
         while (true)

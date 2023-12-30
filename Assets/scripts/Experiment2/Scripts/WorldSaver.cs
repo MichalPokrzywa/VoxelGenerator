@@ -100,7 +100,7 @@ public static class WorldSaver
             Directory.CreateDirectory(Path.GetDirectoryName(fileName) ?? string.Empty);
         }
 
-        worldData = new WorldData(worldCreator.chunkChecker, worldCreator.ChunkColumns, worldCreator.chunks, worldCreator.fpc.transform.position,WorldCreator.worldDimensions,WorldCreator.chunkDimensions,WorldCreator.worldVisualization);
+        worldData = new WorldData(worldCreator.chunkChecker, worldCreator.chunkColumns, worldCreator.chunks, worldCreator.fpc.transform.position,WorldCreator.worldDimensions,WorldCreator.chunkDimensions,WorldCreator.worldVisualization);
         string json = JsonUtility.ToJson(worldData);
         File.WriteAllText(fileName, json);
 

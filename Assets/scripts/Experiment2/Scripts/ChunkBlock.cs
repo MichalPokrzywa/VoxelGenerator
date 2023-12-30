@@ -71,7 +71,6 @@ public class ChunkBlock : MonoBehaviour
         jobs.vertexStart = new NativeArray<int>(meshCount, Allocator.TempJob, NativeArrayOptions.UninitializedMemory);
         jobs.triStart = new NativeArray<int>(meshCount, Allocator.TempJob, NativeArrayOptions.UninitializedMemory);
 
-
         for (int z = 0; z < depth; z++)
         {
             for (int y = 0; y < height; y++)
@@ -102,7 +101,7 @@ public class ChunkBlock : MonoBehaviour
         jobs.outputMesh.SetVertexBufferParams(vertexStart,
             new VertexAttributeDescriptor(VertexAttribute.Position),
             new VertexAttributeDescriptor(VertexAttribute.Normal, stream: 1),
-            new VertexAttributeDescriptor(VertexAttribute.TexCoord0, stream: 2));
+            new  (VertexAttribute.TexCoord0, stream: 2));
 
         var handle = jobs.Schedule(inputMeshes.Count, 4);
         var newMesh = new Mesh();

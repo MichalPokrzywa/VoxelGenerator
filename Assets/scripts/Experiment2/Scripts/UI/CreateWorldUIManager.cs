@@ -43,11 +43,6 @@ public class CreateWorldUIManager : MonoBehaviour
         currentIndexOfDropdown = menuDropdown.value;
     }
 
-    public void RefreshMenu()
-    {
-
-    }
-
     public void ChangeHideTerrain()
     {
         hideTerrain = hideWorld.isOn;

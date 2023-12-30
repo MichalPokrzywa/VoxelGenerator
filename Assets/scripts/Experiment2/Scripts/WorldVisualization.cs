@@ -14,11 +14,14 @@ public class WorldVisualization : MonoBehaviour
 
     void Start()
     {
-        foreach (PerlinGrapher child in transform.GetComponentsInChildren<PerlinGrapher>())
+        if (perlinGraphers.Count == 0)
         {
-            Debug.Log(child.gameObject.name);
-            child.StartSetup();
-            perlinGraphers.Add(child);
+            foreach (PerlinGrapher child in transform.GetComponentsInChildren<PerlinGrapher>())
+            {
+                Debug.Log(child.gameObject.name);
+                child.StartSetup();
+                perlinGraphers.Add(child);
+            }
         }
 
         if (calculate == null)
@@ -43,10 +46,6 @@ public class WorldVisualization : MonoBehaviour
             perlinSettings.Add(settings);
         }
         Debug.Log(perlinSettings.Count);
-    }
-    public string SerializeToJSON()
-    {
-        return JsonUtility.ToJson(this);
     }
 }
 [Serializable]
