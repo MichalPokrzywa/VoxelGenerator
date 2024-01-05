@@ -82,7 +82,10 @@ public class SettingsGraphManager : MonoBehaviour
             perlinGrapherSettings.Graph();
         }
         else
+        {
             perlin3DGrapherSettings.heightScale = float.Parse(heightScaleInputField.text);
+            perlin3DGrapherSettings.Graph();
+        }
     }
 
     /**
@@ -96,7 +99,10 @@ public class SettingsGraphManager : MonoBehaviour
             perlinGrapherSettings.Graph();
         }
         else
+        {
             perlin3DGrapherSettings.scale = (float)Math.Round((decimal)scaleSlider.value, 3);
+            perlin3DGrapherSettings.Graph();
+        }
     }
 
     /**
@@ -110,7 +116,10 @@ public class SettingsGraphManager : MonoBehaviour
             perlinGrapherSettings.Graph();
         }
         else
+        {
             perlin3DGrapherSettings.octaves = int.Parse(octavesInputField.text);
+            perlin3DGrapherSettings.Graph();
+        }
     }
 
     /**
@@ -124,7 +133,10 @@ public class SettingsGraphManager : MonoBehaviour
             perlinGrapherSettings.Graph();
         }
         else
+        {
             perlin3DGrapherSettings.drawCutOff = (float)Math.Round((decimal)probabilitySlider.value, 3);
+            perlin3DGrapherSettings.Graph();
+        }
     }
 
     /**
@@ -140,6 +152,7 @@ public class SettingsGraphManager : MonoBehaviour
         else
         {
             perlin3DGrapherSettings.heightOffset = float.Parse(heightOffsetInputField.text);
+            perlin3DGrapherSettings.Graph();
         }
     }
 }
