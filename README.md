@@ -4,3 +4,4 @@ creation, selection of a terrain model to generate, procedural terrain expansion
 saving and loading of generated terrains. The final result of the project is presented in the
 form of a Windows platform program that demonstrates terrain generation and parameter
 modification capabilities.
+[![VideoDemonstration](https://img.youtube.com/vi/VfMCmproKoY/0.jpg)](https://youtu.be/VfMCmproKoY)
